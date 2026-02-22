@@ -1,69 +1,102 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Dossier Confidentiel — MALMAS | Mizaroo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <title>Accès — Dossier MALMAS | Mizaroo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- SEO -->
-  <meta name="description" content="Dossier Confidentiel — MALMAS, préparé par MIZAROO. Document stratégique et strictement confidentiel.">
+  <meta name="description" content="Accès sécurisé au dossier confidentiel MALMAS." />
 
-  <!-- Open Graph (WhatsApp, Facebook, LinkedIn) -->
-  <meta property="og:title" content="Dossier Confidentiel — MALMAS">
-  <meta property="og:description" content="Document confidentiel stratégique préparé par MIZAROO.">
-  <!-- 👉 IMAGE À LA RACINE DU PROJET  -->
-  <meta property="og:image" content="https://mizaroo-previews.vercel.app/og-malmas.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://mizaroo-previews.vercel.app/malmas">
-
-  <!-- Twitter Card (iMessage + Twitter compatibility) -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Dossier Confidentiel — MALMAS">
-  <meta name="twitter:description" content="Document confidentiel stratégique préparé par MIZAROO.">
-  <meta name="twitter:image" content="https://mizaroo-previews.vercel.app/og-malmas.png">
+  <!-- Open Graph (WhatsApp Preview) -->
+  <meta property="og:title" content="Dossier Confidentiel — MALMAS" />
+  <meta property="og:description" content="Document confidentiel préparé par MIZAROO." />
+  <meta property="og:image" content="https://mizaroo-previews.vercel.app/og-malmas.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://mizaroo-previews.vercel.app/malmas" />
 
   <style>
     body {
       background: #0a0a0a;
       color: #eee;
       font-family: Arial, sans-serif;
-      padding: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
       text-align: center;
     }
+
     .box {
-      max-width: 600px;
-      margin: auto;
-      padding: 30px;
-      border-radius: 12px;
       background: #111;
+      padding: 40px;
+      border-radius: 12px;
       border: 1px solid #333;
-      box-shadow: 0 0 20px rgba(250, 204, 21, 0.05);
+      width: 90%;
+      max-width: 400px;
+      box-shadow: 0 0 20px rgba(250, 204, 21, 0.1);
     }
+
     h1 {
       color: #facc15;
-      margin-bottom: 10px;
-      font-size: 28px;
-      letter-spacing: 1px;
+      margin-bottom: 20px;
     }
-    p {
-      color: #ccc;
+
+    input {
+      width: 100%;
+      padding: 15px;
       font-size: 1rem;
-      line-height: 1.5rem;
+      border-radius: 8px;
+      border: 1px solid #444;
+      margin-bottom: 20px;
+      background: #000;
+      color: #eee;
     }
-    strong {
-      color: #facc15;
+
+    button {
+      width: 100%;
+      padding: 15px;
+      background: #facc15;
+      color: #000;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .error {
+      margin-top: 15px;
+      color: #ff4444;
+      font-size: 0.9rem;
+      display: none;
     }
   </style>
 </head>
 <body>
   <div class="box">
-    <h1>Dossier Confidentiel — MALMAS</h1>
-    <p>Bienvenue.<br><br>
-      Ce dossier stratégique a été préparé par <strong>Mizaroo</strong>.<br>
-      Il contient des informations confidentielles réservées à l'équipe MALMAS.
-    </p>
+    <h1>Code d'accès requis</h1>
+    <p>Veuillez entrer le code pour accéder au dossier confidentiel MALMAS.</p>
+
+    <input type="password" id="accessCode" placeholder="Entrez le code" />
+
+    <button onclick="checkCode()">Valider</button>
+
+    <div id="errorMessage" class="error">❌ Code incorrect</div>
   </div>
+
+  <script>
+    function checkCode() {
+      const correctCode = "MALMAS2026"; // 🔑 CODE À CHANGER SI TU VEUX
+      const inputCode = document.getElementById("accessCode").value;
+
+      if (inputCode === correctCode) {
+        window.location.href = "/MALMAS_Strategic_Proposal.html";
+      } else {
+        document.getElementById("errorMessage").style.display = "block";
+      }
+    }
+  </script>
 </body>
 </html>
