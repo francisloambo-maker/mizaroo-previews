@@ -12,10 +12,12 @@
   <meta property="og:title" content="Dossier Confidentiel — MALMAS" />
   <meta property="og:description" content="Document confidentiel préparé par MIZAROO." />
   <meta property="og:image" content="https://mizaroo-previews.vercel.app/og-malmas.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://mizaroo-previews.vercel.app/malmas" />
 
-  <!-- Essential for WhatsApp large preview -->
+  <!-- Important pour les vignettes grand format (WhatsApp utilise aussi ça) -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:image" content="https://mizaroo-previews.vercel.app/og-malmas.png" />
 
@@ -92,7 +94,7 @@
 
   <script>
     function checkCode() {
-      const correctCode = "MALMAS2026"; // 🔑 CODE À CHANGER SI TU VEUX
+      const correctCode = "MALMAS2026"; // 🔑 CODE D'ACCÈS
       const inputCode = document.getElementById("accessCode").value;
 
       if (inputCode === correctCode) {
