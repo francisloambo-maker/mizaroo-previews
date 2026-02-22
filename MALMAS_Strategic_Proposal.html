@@ -1,0 +1,3220 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dossier Confidentiel — MALMAS × Mizaroo</title>
+
+<!-- Open Graph / WhatsApp / Social Preview -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Dossier Confidentiel — MALMAS">
+<meta property="og:description" content="Framework de collaboration stratégique MALMAS × Mizaroo — Cybersécurité souveraine pour la Banque Centrale du Congo.">
+<meta property="og:image" content="og-preview.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Dossier Confidentiel — MALMAS">
+<meta name="twitter:description" content="Cybersécurité souveraine pour la Banque Centrale du Congo.">
+<meta name="twitter:image" content="og-preview.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════
+   DESIGN SYSTEM — MALMAS STRATEGIC PROPOSAL
+   ═══════════════════════════════════════════ */
+
+:root {
+  /* Dark Mode (default) */
+  --bg-primary: #0a0a0f;
+  --bg-secondary: #12121a;
+  --bg-tertiary: #1a1a26;
+  --bg-card: rgba(255,255,255,0.03);
+  --bg-card-hover: rgba(255,255,255,0.06);
+  --bg-glass: rgba(255,255,255,0.04);
+  --border-subtle: rgba(255,255,255,0.06);
+  --border-medium: rgba(255,255,255,0.1);
+  --text-primary: #f0f0f5;
+  --text-secondary: rgba(240,240,245,0.65);
+  --text-tertiary: rgba(240,240,245,0.4);
+  --accent: #6366f1;
+  --accent-light: #818cf8;
+  --accent-glow: rgba(99,102,241,0.15);
+  --accent-secondary: #06b6d4;
+  --gradient-accent: linear-gradient(135deg, #6366f1, #06b6d4);
+  --gradient-hero: radial-gradient(ellipse at 20% 50%, rgba(99,102,241,0.12) 0%, transparent 60%),
+                   radial-gradient(ellipse at 80% 20%, rgba(6,182,212,0.08) 0%, transparent 50%);
+  --shadow-card: 0 1px 3px rgba(0,0,0,0.3), 0 8px 32px rgba(0,0,0,0.2);
+  --shadow-elevated: 0 4px 16px rgba(0,0,0,0.4), 0 16px 64px rgba(0,0,0,0.3);
+  --scrollbar-track: #12121a;
+  --scrollbar-thumb: #2a2a3a;
+}
+
+[data-theme="light"] {
+  --bg-primary: #fafafa;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #f5f5f7;
+  --bg-card: rgba(0,0,0,0.02);
+  --bg-card-hover: rgba(0,0,0,0.04);
+  --bg-glass: rgba(255,255,255,0.7);
+  --border-subtle: rgba(0,0,0,0.06);
+  --border-medium: rgba(0,0,0,0.1);
+  --text-primary: #1a1a2e;
+  --text-secondary: rgba(26,26,46,0.6);
+  --text-tertiary: rgba(26,26,46,0.35);
+  --accent: #4f46e5;
+  --accent-light: #6366f1;
+  --accent-glow: rgba(79,70,229,0.1);
+  --accent-secondary: #0891b2;
+  --gradient-hero: radial-gradient(ellipse at 20% 50%, rgba(79,70,229,0.06) 0%, transparent 60%),
+                   radial-gradient(ellipse at 80% 20%, rgba(8,145,178,0.04) 0%, transparent 50%);
+  --shadow-card: 0 1px 3px rgba(0,0,0,0.06), 0 8px 32px rgba(0,0,0,0.04);
+  --shadow-elevated: 0 4px 16px rgba(0,0,0,0.08), 0 16px 64px rgba(0,0,0,0.06);
+  --scrollbar-track: #f0f0f0;
+  --scrollbar-thumb: #c0c0c0;
+}
+
+/* ═══════ RESET & BASE ═══════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.7;
+  overflow-x: hidden;
+  transition: background 0.5s ease, color 0.4s ease;
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--scrollbar-track); }
+::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); border-radius: 3px; }
+
+/* ═══════ TYPOGRAPHY ═══════ */
+h1, h2, h3, h4 { font-family: 'Space Grotesk', 'Inter', sans-serif; font-weight: 700; letter-spacing: -0.02em; }
+h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); line-height: 1.08; }
+h2 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); line-height: 1.15; }
+h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); line-height: 1.3; }
+
+.label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-light);
+}
+
+/* ═══════ SCROLL PROGRESS ═══════ */
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: var(--gradient-accent);
+  z-index: 1000;
+  transition: width 0.1s linear;
+}
+
+/* ═══════ NAVIGATION ═══════ */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 900;
+  padding: 0 2rem;
+  backdrop-filter: blur(20px) saturate(1.2);
+  -webkit-backdrop-filter: blur(20px) saturate(1.2);
+  background: rgba(10,10,15,0.7);
+  border-bottom: 1px solid var(--border-subtle);
+  transition: all 0.4s ease;
+}
+
+[data-theme="light"] nav {
+  background: rgba(250,250,250,0.8);
+}
+
+nav.scrolled {
+  box-shadow: 0 2px 20px rgba(0,0,0,0.15);
+}
+
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+.nav-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 4px 0;
+}
+
+.nav-logo-img {
+  height: 22px;
+  width: auto;
+  object-fit: contain;
+  transition: filter 0.4s ease, opacity 0.4s ease;
+}
+
+[data-theme="light"] .nav-logo-img {
+  filter: brightness(0) saturate(0.1);
+}
+
+.nav-logo-label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.52rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  white-space: nowrap;
+  transition: color 0.4s ease;
+}
+
+.nav-logo:hover .nav-logo-label {
+  color: var(--accent-light);
+}
+
+.nav-logo:hover .nav-logo-img {
+  filter: drop-shadow(0 0 6px rgba(99,102,241,0.3));
+}
+
+[data-theme="light"] .nav-logo:hover .nav-logo-img {
+  filter: brightness(0) saturate(0.1) drop-shadow(0 0 6px rgba(79,70,229,0.2));
+}
+
+.nav-links {
+  display: flex;
+  gap: 0.25rem;
+  list-style: none;
+}
+
+.nav-links a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.82rem;
+  font-weight: 500;
+  padding: 0.45rem 0.85rem;
+  border-radius: 8px;
+  transition: all 0.25s ease;
+  position: relative;
+}
+
+.nav-links a:hover, .nav-links a.active {
+  color: var(--text-primary);
+  background: var(--accent-glow);
+}
+
+/* Theme Toggle */
+.theme-toggle {
+  width: 44px;
+  height: 24px;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-medium);
+  border-radius: 12px;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.theme-toggle::after {
+  content: '';
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  top: 2px;
+  left: 2px;
+  background: var(--accent);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+}
+
+[data-theme="light"] .theme-toggle::after {
+  transform: translateX(20px);
+  background: #f59e0b;
+}
+
+/* Mobile menu */
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  cursor: pointer;
+  padding: 8px;
+}
+
+.mobile-menu-btn span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--text-primary);
+  margin: 5px 0;
+  border-radius: 1px;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-btn { display: block; }
+  .nav-links {
+    position: fixed;
+    top: 64px;
+    left: 0;
+    right: 0;
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--border-subtle);
+    flex-direction: column;
+    padding: 1rem;
+    gap: 0.25rem;
+    transform: translateY(-120%);
+    opacity: 0;
+    transition: all 0.35s ease;
+  }
+  .nav-links.open {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* ═══════ SECTIONS ═══════ */
+section {
+  padding: 7rem 2rem;
+  position: relative;
+}
+
+.section-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.section-header {
+  margin-bottom: 4rem;
+  max-width: 640px;
+}
+
+.section-header .label { margin-bottom: 1rem; display: block; }
+.section-header h2 { margin-bottom: 1.2rem; }
+.section-header p { color: var(--text-secondary); font-size: 1.05rem; }
+
+/* ═══════ HERO ═══════ */
+#hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  padding-top: 64px;
+}
+
+#hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gradient-hero);
+  pointer-events: none;
+}
+
+/* Animated grid background */
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--border-subtle) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border-subtle) 1px, transparent 1px);
+  background-size: 80px 80px;
+  mask-image: radial-gradient(ellipse at center, black 20%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse at center, black 20%, transparent 70%);
+  opacity: 0.5;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 820px;
+  padding: 0 1rem;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1rem;
+  border-radius: 100px;
+  border: 1px solid var(--border-medium);
+  background: var(--bg-glass);
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  backdrop-filter: blur(10px);
+}
+
+.hero-badge .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #22c55e;
+  animation: pulse-dot 2s ease infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(34,197,94,0.4); }
+  50% { opacity: 0.7; box-shadow: 0 0 0 6px rgba(34,197,94,0); }
+}
+
+.hero-content h1 {
+  margin-bottom: 1.5rem;
+}
+
+.hero-content h1 .gradient-text {
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-subtitle {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: var(--text-secondary);
+  max-width: 560px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.7;
+}
+
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.85rem 2rem;
+  background: var(--gradient-accent);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.92rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(99,102,241,0.3);
+}
+
+.hero-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(99,102,241,0.4);
+}
+
+.hero-cta svg { width: 18px; height: 18px; transition: transform 0.3s ease; }
+.hero-cta:hover svg { transform: translateX(3px); }
+
+.hero-metrics {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin-top: 4rem;
+  padding-top: 3rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.hero-metric { text-align: center; }
+
+.hero-metric .value {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-metric .desc {
+  font-size: 0.78rem;
+  color: var(--text-tertiary);
+  margin-top: 0.25rem;
+}
+
+/* ═══════ ABOUT / MALMAS ═══════ */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+@media (max-width: 768px) {
+  .about-grid { grid-template-columns: 1fr; }
+}
+
+.profile-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 20px;
+  padding: 2.5rem;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.profile-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--gradient-accent);
+}
+
+.profile-card:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-medium);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-elevated);
+}
+
+.profile-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 18px;
+  background: var(--gradient-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: #fff;
+  margin-bottom: 1.5rem;
+}
+
+.profile-card h3 { margin-bottom: 0.3rem; }
+
+.profile-role {
+  color: var(--accent-light);
+  font-size: 0.88rem;
+  font-weight: 500;
+  margin-bottom: 1.2rem;
+}
+
+.profile-card p {
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.credential-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.credential-tag {
+  display: inline-block;
+  padding: 0.3rem 0.75rem;
+  border-radius: 8px;
+  background: var(--accent-glow);
+  color: var(--accent-light);
+  font-size: 0.75rem;
+  font-weight: 500;
+  border: 1px solid rgba(99,102,241,0.15);
+}
+
+.expertise-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.expertise-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.expertise-item:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-medium);
+}
+
+.expertise-item .icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: var(--accent-glow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.8rem;
+  font-size: 1.1rem;
+}
+
+.expertise-item h4 {
+  font-size: 0.95rem;
+  margin-bottom: 0.3rem;
+}
+
+.expertise-item p {
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+  line-height: 1.6;
+}
+
+/* ═══════ PROBLEM SECTION ═══════ */
+#problem {
+  background: var(--bg-secondary);
+}
+
+.threat-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.threat-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  padding: 2rem;
+  transition: all 0.35s ease;
+  position: relative;
+}
+
+.threat-card:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-medium);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-card);
+}
+
+.threat-card .threat-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  margin-bottom: 1.2rem;
+}
+
+.threat-card:nth-child(1) .threat-icon { background: rgba(239,68,68,0.1); }
+.threat-card:nth-child(2) .threat-icon { background: rgba(245,158,11,0.1); }
+.threat-card:nth-child(3) .threat-icon { background: rgba(168,85,247,0.1); }
+.threat-card:nth-child(4) .threat-icon { background: rgba(14,165,233,0.1); }
+
+.threat-card h3 { font-size: 1.05rem; margin-bottom: 0.6rem; }
+.threat-card p { color: var(--text-secondary); font-size: 0.88rem; }
+
+.stat-bar {
+  margin-top: 1.2rem;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--bg-tertiary);
+  overflow: hidden;
+}
+
+.stat-bar-fill {
+  height: 100%;
+  border-radius: 2px;
+  background: var(--gradient-accent);
+  width: 0%;
+  transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ═══════ SOLUTION TABS ═══════ */
+.solution-tabs {
+  display: flex;
+  gap: 0.4rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+  padding: 0.35rem;
+  margin-bottom: 2.5rem;
+  width: fit-content;
+}
+
+@media (max-width: 768px) {
+  .solution-tabs { width: 100%; flex-direction: column; }
+}
+
+.solution-tab {
+  padding: 0.7rem 1.5rem;
+  border-radius: 10px;
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.solution-tab:hover { color: var(--text-primary); }
+
+.solution-tab.active {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 2px 12px rgba(99,102,241,0.3);
+}
+
+.tab-content {
+  display: none;
+  animation: fadeSlideIn 0.5s ease;
+}
+
+.tab-content.active { display: block; }
+
+@keyframes fadeSlideIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.solution-detail {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .solution-detail { grid-template-columns: 1fr; }
+}
+
+.solution-text h3 {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+}
+
+.solution-text p {
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.feature-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.feature-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.feature-list li .check {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 6px;
+  background: var(--accent-glow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+}
+
+.feature-list li .check svg {
+  width: 12px;
+  height: 12px;
+  stroke: var(--accent-light);
+}
+
+.solution-visual {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 20px;
+  padding: 2.5rem;
+  position: relative;
+  overflow: hidden;
+  min-height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.solution-visual::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gradient-hero);
+  opacity: 0.5;
+}
+
+/* ═══════ ARCHITECTURE ═══════ */
+#architecture { background: var(--bg-secondary); }
+
+.arch-diagram {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 20px;
+  padding: 3rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.arch-layers {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.arch-layer {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.5rem 2rem;
+  border-radius: 14px;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-glass);
+  backdrop-filter: blur(10px);
+  transition: all 0.4s ease;
+}
+
+.arch-layer:hover {
+  border-color: var(--accent);
+  background: var(--accent-glow);
+  transform: translateX(8px);
+}
+
+.arch-layer-num {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 800;
+  font-size: 2rem;
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  min-width: 48px;
+}
+
+.arch-layer-content h4 { font-size: 1rem; margin-bottom: 0.25rem; }
+.arch-layer-content p { color: var(--text-secondary); font-size: 0.85rem; }
+
+.arch-connector {
+  width: 2px;
+  height: 24px;
+  background: var(--gradient-accent);
+  margin-left: 3.5rem;
+  opacity: 0.5;
+}
+
+/* SVG Architecture Diagram */
+.arch-svg-container {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+}
+
+.arch-svg-container svg {
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+}
+
+.arch-svg-container text {
+  font-family: 'Inter', sans-serif;
+}
+
+/* ═══════ ROADMAP / TIMELINE ═══════ */
+.timeline {
+  position: relative;
+  padding-left: 3rem;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 15px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--border-medium);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 3rem;
+  padding-left: 2rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+}
+
+.timeline-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -2.95rem;
+  top: 0.3rem;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 3px solid var(--bg-primary);
+  box-shadow: 0 0 0 3px var(--accent-glow);
+}
+
+[data-theme="light"] .timeline-dot {
+  border-color: var(--bg-secondary);
+}
+
+.timeline-phase {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent-light);
+  margin-bottom: 0.4rem;
+}
+
+.timeline-item h3 { font-size: 1.15rem; margin-bottom: 0.5rem; }
+
+.timeline-item p {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+.timeline-duration {
+  display: inline-block;
+  margin-top: 0.8rem;
+  padding: 0.3rem 0.8rem;
+  border-radius: 8px;
+  background: var(--accent-glow);
+  color: var(--accent-light);
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+/* ═══════ VALUE SECTION ═══════ */
+#value { background: var(--bg-secondary); }
+
+.value-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .value-grid { grid-template-columns: 1fr; }
+}
+
+.value-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 18px;
+  padding: 2.2rem;
+  transition: all 0.35s ease;
+}
+
+.value-card:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-medium);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-card);
+}
+
+.value-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 13px;
+  background: var(--accent-glow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  margin-bottom: 1.2rem;
+}
+
+.value-card h3 { font-size: 1.1rem; margin-bottom: 0.5rem; }
+.value-card p { color: var(--text-secondary); font-size: 0.88rem; line-height: 1.7; }
+
+/* ═══════ RAPPORT SECTION ═══════ */
+#rapport {
+  background: var(--bg-primary);
+  position: relative;
+  overflow: hidden;
+}
+
+#rapport::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 30% 20%, rgba(239,68,68,0.05) 0%, transparent 55%),
+    radial-gradient(ellipse at 70% 80%, rgba(99,102,241,0.05) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.rapport-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+  z-index: 2;
+}
+
+.rapport-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1.1rem;
+  border-radius: 100px;
+  border: 1px solid rgba(239,68,68,0.25);
+  background: rgba(239,68,68,0.06);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #ef4444;
+  margin-bottom: 1.5rem;
+}
+
+[data-theme="light"] .rapport-badge {
+  border-color: rgba(220,38,38,0.3);
+  color: #dc2626;
+}
+
+.rapport-header h2 .red-text {
+  background: linear-gradient(135deg, #ef4444, #f97316);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.rapport-header > p {
+  max-width: 650px;
+  margin: 1rem auto 0;
+  color: var(--text-secondary);
+  font-size: 0.98rem;
+  line-height: 1.8;
+}
+
+/* Meeting meta card */
+.meeting-meta {
+  position: relative;
+  z-index: 2;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 18px;
+  padding: 2.2rem 2.5rem;
+  margin-bottom: 3rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .meeting-meta { grid-template-columns: repeat(2, 1fr); }
+}
+
+.meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.meta-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+}
+
+.meta-value {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+}
+
+/* Report sub-navigation (tabs) */
+.rapport-tabs {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.rapport-tab {
+  padding: 0.6rem 1.2rem;
+  border-radius: 10px;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-card);
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Inter', sans-serif;
+}
+
+.rapport-tab:hover {
+  border-color: var(--border-medium);
+  color: var(--text-primary);
+}
+
+.rapport-tab.active {
+  background: var(--accent-glow);
+  border-color: var(--accent);
+  color: var(--accent-light);
+}
+
+.rapport-panel {
+  display: none;
+  position: relative;
+  z-index: 2;
+}
+
+.rapport-panel.active {
+  display: block;
+  animation: rapportFadeIn 0.4s ease;
+}
+
+@keyframes rapportFadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Minutes cards */
+.minutes-block {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.minutes-block:hover {
+  border-color: var(--border-medium);
+}
+
+.minutes-block h3 {
+  font-size: 1.05rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.minutes-block h3 .m-icon {
+  font-size: 1.1rem;
+  display: inline-flex;
+}
+
+.minutes-point {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  margin-bottom: 0.7rem;
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+.minutes-bullet {
+  flex-shrink: 0;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+  margin-top: 8px;
+}
+
+/* Status indicators for questions */
+.question-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.question-card h3 {
+  font-size: 1.05rem;
+  margin-bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.q-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+  padding: 0.9rem 1rem;
+  border-radius: 10px;
+  background: var(--bg-glass);
+  border: 1px solid var(--border-subtle);
+}
+
+.q-status {
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.q-status.clear {
+  background: rgba(34,197,94,0.12);
+  color: #22c55e;
+  border: 1px solid rgba(34,197,94,0.2);
+}
+
+.q-status.partial {
+  background: rgba(245,158,11,0.12);
+  color: #f59e0b;
+  border: 1px solid rgba(245,158,11,0.2);
+}
+
+.q-status.unclear {
+  background: rgba(239,68,68,0.12);
+  color: #ef4444;
+  border: 1px solid rgba(239,68,68,0.2);
+}
+
+.q-content {
+  flex: 1;
+}
+
+.q-question {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.3rem;
+}
+
+.q-answer {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Analysis cards */
+.analysis-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+  .analysis-grid { grid-template-columns: 1fr; }
+}
+
+.analysis-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.analysis-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+}
+
+.analysis-card.strengths::before { background: linear-gradient(90deg, #22c55e, #4ade80); }
+.analysis-card.risks::before { background: linear-gradient(90deg, #ef4444, #f87171); }
+.analysis-card.opportunities::before { background: linear-gradient(90deg, #6366f1, #818cf8); }
+.analysis-card.recommendations::before { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+
+.analysis-card h3 {
+  font-size: 1.05rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.analysis-card .a-icon {
+  font-size: 1.1rem;
+}
+
+.analysis-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  margin-bottom: 0.65rem;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.a-dot {
+  flex-shrink: 0;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  margin-top: 8px;
+}
+
+.analysis-card.strengths .a-dot { background: #22c55e; }
+.analysis-card.risks .a-dot { background: #ef4444; }
+.analysis-card.opportunities .a-dot { background: var(--accent-light); }
+.analysis-card.recommendations .a-dot { background: #f59e0b; }
+
+/* Score summary */
+.score-summary {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 18px;
+  padding: 2.5rem;
+  text-align: center;
+}
+
+.score-summary h3 {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.score-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.score-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.score-label {
+  width: 120px;
+  text-align: right;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  flex-shrink: 0;
+}
+
+.score-track {
+  flex: 1;
+  height: 8px;
+  border-radius: 4px;
+  background: var(--bg-tertiary);
+  overflow: hidden;
+}
+
+.score-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 1.2s ease;
+  width: 0%;
+}
+
+.score-fill.green { background: linear-gradient(90deg, #22c55e, #4ade80); }
+.score-fill.amber { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+.score-fill.red { background: linear-gradient(90deg, #ef4444, #f87171); }
+.score-fill.indigo { background: var(--gradient-accent); }
+
+.score-val {
+  width: 40px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--text-primary);
+}
+
+/* Verdict box */
+.verdict-box {
+  margin-top: 2rem;
+  background: var(--bg-card);
+  border: 1px solid rgba(245,158,11,0.25);
+  border-radius: 16px;
+  padding: 2rem 2.5rem;
+  text-align: left;
+}
+
+.verdict-box h3 {
+  font-size: 1.05rem;
+  margin-bottom: 1rem;
+  color: #f59e0b;
+}
+
+.verdict-box p {
+  color: var(--text-secondary);
+  font-size: 0.88rem;
+  line-height: 1.7;
+  margin-bottom: 0.8rem;
+}
+
+.verdict-box .verdict-highlight {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* Print */
+@media print {
+  #rapport { break-inside: avoid; }
+  .rapport-tabs { display: none; }
+  .rapport-panel { display: block !important; margin-bottom: 2rem; }
+}
+
+/* ═══════ CTA FINAL ═══════ */
+#contact {
+  text-align: center;
+  background: var(--bg-primary);
+  position: relative;
+  overflow: hidden;
+}
+
+#contact::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gradient-hero);
+  pointer-events: none;
+}
+
+.cta-box {
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+  margin: 0 auto;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 24px;
+  padding: 3.5rem 2.5rem;
+  backdrop-filter: blur(20px);
+}
+
+.cta-box h2 { margin-bottom: 1rem; }
+.cta-box p { color: var(--text-secondary); margin-bottom: 2rem; font-size: 1rem; }
+
+.cta-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.cta-contact a {
+  color: var(--accent-light);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: color 0.2s ease;
+}
+
+.cta-contact a:hover { color: var(--accent); }
+
+/* ═══════ FOOTER ═══════ */
+footer {
+  padding: 2rem;
+  text-align: center;
+  border-top: 1px solid var(--border-subtle);
+  color: var(--text-tertiary);
+  font-size: 0.78rem;
+}
+
+/* ═══════ ANIMATIONS ═══════ */
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.stagger-1 { transition-delay: 0.1s; }
+.stagger-2 { transition-delay: 0.2s; }
+.stagger-3 { transition-delay: 0.3s; }
+.stagger-4 { transition-delay: 0.4s; }
+
+/* Hero entrance animations */
+.hero-content > * {
+  opacity: 0;
+  transform: translateY(25px);
+  animation: heroEnter 0.8s ease forwards;
+}
+
+.hero-content > *:nth-child(1) { animation-delay: 0.2s; }
+.hero-content > *:nth-child(2) { animation-delay: 0.4s; }
+.hero-content > *:nth-child(3) { animation-delay: 0.6s; }
+.hero-content > *:nth-child(4) { animation-delay: 0.8s; }
+.hero-content > *:nth-child(5) { animation-delay: 1s; }
+
+@keyframes heroEnter {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ═══════ SVG VISUALS ═══════ */
+.visual-node {
+  fill: var(--bg-tertiary);
+  stroke: var(--border-medium);
+  stroke-width: 1.5;
+  transition: all 0.3s ease;
+}
+
+.visual-node:hover {
+  stroke: var(--accent);
+  fill: var(--accent-glow);
+}
+
+.visual-line {
+  stroke: var(--border-medium);
+  stroke-width: 1;
+  stroke-dasharray: 6 4;
+}
+
+.visual-text-main {
+  fill: var(--text-primary);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.visual-text-sub {
+  fill: var(--text-secondary);
+  font-size: 10px;
+}
+
+.visual-accent-fill {
+  fill: var(--accent);
+}
+
+/* ═══════ Mizaroo STRATEGIC VALUE SECTION ═══════ */
+#mizaroo-value {
+  background: var(--bg-secondary);
+  position: relative;
+  overflow: hidden;
+}
+
+#mizaroo-value::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 70% 30%, rgba(6,182,212,0.06) 0%, transparent 55%),
+    radial-gradient(ellipse at 20% 70%, rgba(99,102,241,0.05) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.mizaroo-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.mizaroo-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1.1rem;
+  border-radius: 100px;
+  border: 1px solid rgba(6,182,212,0.25);
+  background: rgba(6,182,212,0.06);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent-secondary);
+  margin-bottom: 1.5rem;
+}
+
+[data-theme="light"] .mizaroo-badge {
+  border-color: rgba(8,145,178,0.3);
+  color: #0891b2;
+}
+
+.mizaroo-header h2 .cyan-text {
+  background: linear-gradient(135deg, #06b6d4, #0891b2, #06b6d4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.mizaroo-header > p {
+  max-width: 600px;
+  margin: 1rem auto 0;
+  color: var(--text-secondary);
+  font-size: 0.98rem;
+  line-height: 1.8;
+}
+
+/* Pillar cards */
+.mizaroo-pillars {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  position: relative;
+  z-index: 2;
+  margin-bottom: 3rem;
+}
+
+@media (max-width: 768px) {
+  .mizaroo-pillars { grid-template-columns: 1fr; }
+}
+
+.mizaroo-pillar {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 18px;
+  padding: 2.2rem 1.8rem;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.mizaroo-pillar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+}
+
+.mizaroo-pillar:nth-child(1)::before { background: linear-gradient(90deg, #06b6d4, #22d3ee); }
+.mizaroo-pillar:nth-child(2)::before { background: linear-gradient(90deg, #6366f1, #818cf8); }
+.mizaroo-pillar:nth-child(3)::before { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+
+.mizaroo-pillar:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-medium);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-elevated);
+}
+
+.pillar-phase {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+}
+
+.mizaroo-pillar:nth-child(1) .pillar-phase { color: #06b6d4; }
+.mizaroo-pillar:nth-child(2) .pillar-phase { color: var(--accent-light); }
+.mizaroo-pillar:nth-child(3) .pillar-phase { color: #f59e0b; }
+
+.mizaroo-pillar h3 {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.pillar-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.pillar-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+.pillar-dot {
+  flex-shrink: 0;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  margin-top: 7px;
+}
+
+.mizaroo-pillar:nth-child(1) .pillar-dot { background: #06b6d4; }
+.mizaroo-pillar:nth-child(2) .pillar-dot { background: var(--accent-light); }
+.mizaroo-pillar:nth-child(3) .pillar-dot { background: #f59e0b; }
+
+/* Institutional leverage banner */
+.institutional-lever {
+  position: relative;
+  z-index: 2;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 18px;
+  padding: 2.2rem 2.5rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  transition: all 0.3s ease;
+}
+
+.institutional-lever:hover {
+  border-color: var(--border-medium);
+  box-shadow: var(--shadow-card);
+}
+
+@media (max-width: 768px) {
+  .institutional-lever { flex-direction: column; text-align: center; padding: 1.8rem 1.5rem; }
+}
+
+.lever-icon {
+  flex-shrink: 0;
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(6,182,212,0.12), rgba(99,102,241,0.12));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+}
+
+.lever-content { flex: 1; }
+
+.lever-content h4 {
+  font-size: 1rem;
+  margin-bottom: 0.4rem;
+}
+
+.lever-content p {
+  color: var(--text-secondary);
+  font-size: 0.88rem;
+  line-height: 1.65;
+}
+
+.lever-tags {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  margin-top: 0.8rem;
+}
+
+.lever-tag {
+  padding: 0.25rem 0.65rem;
+  border-radius: 6px;
+  font-size: 0.72rem;
+  font-weight: 500;
+  border: 1px solid rgba(6,182,212,0.2);
+  background: rgba(6,182,212,0.06);
+  color: var(--accent-secondary);
+}
+
+[data-theme="light"] .lever-tag {
+  color: #0891b2;
+}
+
+/* ═══════ STRATEGIC PARTNERSHIP SECTION ═══════ */
+#partnership {
+  background: var(--bg-primary);
+  position: relative;
+  overflow: hidden;
+}
+
+#partnership::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 30% 40%, rgba(245,158,11,0.06) 0%, transparent 60%),
+    radial-gradient(ellipse at 70% 60%, rgba(99,102,241,0.05) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.partnership-header {
+  text-align: center;
+  margin-bottom: 4rem;
+  position: relative;
+  z-index: 2;
+}
+
+.partnership-header .partnership-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.45rem 1.2rem;
+  border-radius: 100px;
+  border: 1px solid rgba(245,158,11,0.25);
+  background: rgba(245,158,11,0.06);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #f59e0b;
+  margin-bottom: 1.5rem;
+}
+
+[data-theme="light"] .partnership-header .partnership-badge {
+  border-color: rgba(217,119,6,0.3);
+  background: rgba(245,158,11,0.08);
+  color: #d97706;
+}
+
+.partnership-header h2 {
+  margin-bottom: 0.6rem;
+}
+
+.partnership-header h2 .gold-text {
+  background: linear-gradient(135deg, #f59e0b, #d97706, #f59e0b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.partnership-subtitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.partner-entity {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 1.15rem;
+  padding: 0.5rem 1.3rem;
+  border-radius: 10px;
+  border: 1px solid var(--border-medium);
+  background: var(--bg-card);
+}
+
+.partner-arrow {
+  color: #f59e0b;
+  font-size: 1.2rem;
+}
+
+.partnership-intro {
+  max-width: 620px;
+  margin: 0 auto;
+  color: var(--text-secondary);
+  font-size: 0.98rem;
+  line-height: 1.8;
+}
+
+/* Accordion cards */
+.accord-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.accord-card {
+  border: 1px solid var(--border-subtle);
+  border-radius: 18px;
+  background: var(--bg-card);
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.accord-card:hover {
+  border-color: var(--border-medium);
+}
+
+.accord-card.open {
+  border-color: rgba(245,158,11,0.25);
+  box-shadow: 0 4px 24px rgba(245,158,11,0.06), var(--shadow-card);
+}
+
+.accord-header {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 1.5rem 2rem;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.25s ease;
+}
+
+.accord-header:hover {
+  background: var(--bg-card-hover);
+}
+
+.accord-num {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 800;
+  font-size: 1rem;
+  color: #fff;
+}
+
+.accord-card:nth-child(1) .accord-num { background: linear-gradient(135deg, #22c55e, #16a34a); }
+.accord-card:nth-child(2) .accord-num { background: linear-gradient(135deg, #f59e0b, #d97706); }
+.accord-card:nth-child(3) .accord-num { background: linear-gradient(135deg, #6366f1, #4f46e5); }
+
+.accord-title-block { flex: 1; }
+
+.accord-title-block h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.15rem;
+}
+
+.accord-title-block .accord-sub {
+  font-size: 0.8rem;
+  color: var(--text-tertiary);
+  font-weight: 400;
+}
+
+.accord-chevron {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: var(--bg-tertiary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.accord-card.open .accord-chevron {
+  transform: rotate(180deg);
+  background: rgba(245,158,11,0.15);
+}
+
+.accord-chevron svg {
+  width: 14px;
+  height: 14px;
+  stroke: var(--text-secondary);
+  stroke-width: 2.5;
+  fill: none;
+}
+
+.accord-card.open .accord-chevron svg {
+  stroke: #f59e0b;
+}
+
+.accord-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), padding 0.4s ease;
+}
+
+.accord-card.open .accord-body {
+  max-height: 600px;
+}
+
+.accord-body-inner {
+  padding: 0 2rem 2rem 2rem;
+}
+
+.governance-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
+}
+
+@media (max-width: 600px) {
+  .governance-grid { grid-template-columns: 1fr; }
+  .accord-header { padding: 1.2rem 1.3rem; }
+  .accord-body-inner { padding: 0 1.3rem 1.5rem 1.3rem; }
+}
+
+.gov-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  padding: 0.9rem 1rem;
+  border-radius: 10px;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-glass);
+  transition: all 0.25s ease;
+}
+
+.gov-item:hover {
+  border-color: var(--border-medium);
+  background: var(--bg-card-hover);
+}
+
+.gov-bullet {
+  flex-shrink: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  margin-top: 7px;
+}
+
+.accord-card:nth-child(1) .gov-bullet { background: #22c55e; }
+.accord-card:nth-child(2) .gov-bullet { background: #f59e0b; }
+.accord-card:nth-child(3) .gov-bullet { background: #6366f1; }
+
+.gov-item p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+/* Partnership divider line */
+.partnership-divider {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #f59e0b, transparent);
+  margin: 3rem auto 0;
+  border-radius: 1px;
+}
+
+/* Responsive hero metrics */
+@media (max-width: 600px) {
+  .hero-metrics { flex-direction: column; gap: 1.5rem; }
+  .hero-metric .value { font-size: 1.6rem; }
+  section { padding: 4rem 1.2rem; }
+  .arch-layer { flex-direction: column; text-align: center; padding: 1.2rem; }
+  .arch-connector { margin: 0 auto; }
+  .about-grid { gap: 1.5rem; }
+  .profile-card { padding: 1.8rem; }
+  .solution-tabs { overflow-x: auto; }
+}
+</style>
+</head>
+<body data-theme="dark">
+
+<!-- Scroll Progress -->
+<div id="scroll-progress"></div>
+
+<!-- Navigation -->
+<nav id="main-nav">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-logo">
+      <img class="nav-logo-img" src="data:image/webp;base64,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fv379+/fv379+/fv379+/fv379+/fv379+/fv379+/fv379+/fv379+/fv379+/fv379+/fv379+/fv379+/fv379+/fv379+/fv379+/fv379+/fv379+/fv379+/fv379+/fv379+/fv379+/fv379+/fv379+/fv379+/fv379+/fv379+/fv379+/fv379+/fv379+/fv379+/fv379+/fv379+/fv379+/fv379+/fv379+/fv379+/fv379+/fv379+/fv379+/fv379+/fv379+/fv379+/fv379+/fv379+/fv379+/fv379+/fv379+/fv379+/fv379+/fv379+/fv379+/fv379+/fv379+/fv379+/fv379+/fv320latWrVq1atWrVq1atWrVq1atWrVq1atWrVq1atWrVq1atWrVq1atWrVq1atWrVq1atWrVq1atWrVq1atWrVpC27MqTgRb3qOk/hwv1Z4lvdfKjTrEUtgOmL66gq1Wm0YHr169evXr12vp1fOS4f/efTOGvPkKC8AjwbwPrBc8KsoiW1vOYHr169evXr169evXr169evXr169evXr169evXr169evXr169evXr169evXr169evXr169evXr169evXr169evXrtNNfVLCRnBPkMuvzT1ECQWfbC+hK178w+RjXjNDhw4cOHCtbGMsJH0WlTcOcohFzPG2FJYdSflrnHSp5ykRwZocOHDhw4cOHDhw4cOHDhw4cOHDhw4cOHDhw4cOHDhw4cOHDhw4cOHDhw4cOHDhw4cOHDhw4cOHDhw4cOHDhwrz7tDO5tgcCAYI5dz/TF52BrRLAy3FSU+r7Th/0fBw4b/GK2LQ1Jco/ms7D1GOQSnA5lH6yVWNTQJCv379+/fv379+/fv379+/fv379+/fv379+/fv379+/fv379+/fv379+/fv37gnwcOHDhw4cOHDhw4cOHDhw3/n3aGO1IjQK/9Xq6Kr1eEEmfXxYqiVX7oL1HwcOGZfK8Hq0UreXXsewP+iCTxXRzlvFCyqfPjhw4cOHDhw4cOHDhw4cOHDhw4cOHDhw4cOHDhw4cOHDhw4cOHDhw4cOHDhw4cOHDhw4cOHDhw4cOHDhv/Pu0MdqVCIOhnwPWjpMSYLPe46ixmNHVs6dIkSIyGZ0c3otg9/+/FoM5CZb+hpE0r9KbvuViF6NHSRIkSJEiRIkSJEiRIkSJEiRIkSJEiRIkSJEiRIkSJEiRIkSJEiRIkSJEiRIkSJEiRIkSJEiRIkSJEiRIkLi3DnMylzrUc4gAFQdIy5uQndUB7aN16+0dBztmshvD7cKBw60auBaFRBA+kRevXahBsqR6TLWdEQGS9xIqVrxI5+pDjqUsUucIIJkIwTzJWLCdww8NXdcs24NRc1dMD169evXr169evXr169evXr169evXr169evXr169evXr169evXr169evXr169evXr169evXr169evXr16lX3abHDA2oaHeAOpEGRLyATKpyPXkh15cSaesB1w3d0aKShaiaEbjKv6Pf8fCuaDifHRNwy8KK2rP9Jp7SUUOWel1rzlNA5QZXqSoMGLvmwSmhIa11+/ZMmTJkyZMmTJkyZMmTJkyZMmTJkyZMmTJkyZMmTJkyZMmTJkyZMmTJkyZMmTJkyZMmTJkyZMmTJkyZMlkFO6CbTEVdPGyw8SG90/GZtuq97VNoJ4oNeDzqUoAhMx/ythR7/uS/5IS+vaJ+BlauEEtPOdu3EFiwdKB+Exys7A30Jm+oQ0wPXr169evXcXLYIAgQIECBAgQIECBAgQIECBAgQIECBAgQIECBAgQIECBAT69evXr169evXr169evXr12l5NOtiv6ihIDTp0iRIjIjzXMVsmsMx/EjyIhmhwraMiIH5ksSplk5xuhQyxYsGmAGN+8EL156FwC21mYHr169evXr169evXr169evXr169evXr169evXr169evXr169evXr1O2LFixYsWLFixYsWLFixYsWLFixTLxtWzoUvwAp/wevXqSFX/qrN51jBvcDh9epMPA27tegDjXt6TZS6tWrVpIfp1y1D8rjjVhGBK/1ZWrVq1atWrVqdwkSJEiRIkSJEiRIkSJEiRIkSJEiRIkSJEiRIkSJEiRIkSJEiRIkSJEiRIkSJEiRIkR9uyyWok1nznxlfdHsH169eu1y9zayl4Ma+FX9G196UgcxBiNYjKFvLSR1mgsWLFMkrkvVSIChjipagKx48ePHjx48ePHjx48ePHjx48ePHjx48ePHjx48ePHjx48ePHjx48ePHjx48ePHjx48ePHjx48ePHjxyrWCElPdkzjIuVOkSJEiMoXw1yIBvW5onIM0OFbVbjnWczYxk21HwcN/voZT2SVs52sZvffs2bNmzZs2FZ5cuXLly5cuXLly5cuXLly5cuXLly5cuXLly5JN69evVks2bNmzZs2bNmzZs2bNmzZs2Piw2m3okbNDhw4cK6b4K2MVf0badotF/i5gevXr12rB2Nto3IJw4cOHDhw4cOHDhw4cOHDhw4cOHDhw4cOHDhw4cOHDhw4cOHDhw4cOHDhw4cOHDhw4cOHDhw4cOHDhmOQiAUDaJ/RWaHDhw4Vsxb1ZPhL1xLNDhWzO4oVnCZ1K+aMD169eu0/FpoxOxJTCfXXICLFixYsWLFixYsWLFixYsWLFixYsWLFixYsWLFixYsWLFixYsWLFixYsWLFixYsWLFixYsWLFixYsWKZVbIyFwcXVaBIanSJEiQvn3acVl57TMfrICr+ja9mxK2Iswn4i9evXqTFoMyWeUBBmJwOQkWLFixYsWLFixYsWLFixYsWLFixYsWLFixYsWLFixYsWLFixYsWLFixYsWLFixYsWLFixYsWLFixYsU3rw+fMgXVlYWO8z0+7Lpq1atTVjrkfH9roNFAF75LNDhW9B4cP5nnnFt3rVlQN+/fv32Mz7ObkBSspVowc4k5s2bNmzZs2bNmzZs2bNmzZs2bNmzZs2bNmzZs2bNmzZs2bNmzZs2bNmzZsyly5cuXLly5cuXLly5cuWs0GuuBc4X7e0xPVkmTJkvAqUvZlwIkfg6ka1mhwrXqdDU+zegG4KFmB69eu1CCMGRbAKCjNEO1q1atWrVq1atWrVq1atWrVq1atWrVq1atWrVq1atWrVq1atWrVq1atWrVq1atWrVq1atWrVq1atWrVqrJlqMsBLGizpePd1Hwb/z7tCFgvzqChEtpdkG906VQR/+H3VivOEYEsCeesBIkSIAkBJXJq4EyWQixChXhw4cOHDhw4cOHDhw4cOHDhw4cOHDhw4cLN79+/fv379+/fv379+/fv379+/fv379+/fv379+/fv379uc/A7KzmOFTGtYDhrK8isEB/0esjxyWT4yIQpBFpBslQMhHDgAru7ObGK0rSHHwBmlvBVQ6YXxB1mzI9WjzQH0Te8SFHmQAMA2mssf6Pg4cOHDhwD3Cze/fv379+/fv379+/fv379+/fv379+/fv379+/fv379+/fbSVq1atWrVq1atWrVq1aqwOthAFrslxhcqVRYskTH5svfXm5Y8GKau1cexLMahUzl+3goIA48NgM4xA91qOILFgxNworUk6a9wP8GBhLkilvaoKx1GrlaFtbHBY2rsoQnZXWsg//yi2XAKE0HbWR4MdwVCUi9evXr169evXr169evXr169evXr169evXr169evXr169eu4uXLly5cuXLly5cuXLly5cuXLly5cuXLlyP13Rcv+1+Tekp2DuXSPg4pMN5835lP169dtKAKpHlmrS+M8S3v46kE5yhJ7UO8EKhkCO4DTp06dOnTp06dOnTp06dOnTp06dOnTp06dOnTp06dOnTp06dOnTp06dOnTp06dOnTp06dOnTp06dOnTp065HGv9rLhOuJ73BE7InTpyaNgiCEYiin69evXbUlB5iBkcUasIkCbgRNNCpjpAPgAt6QwNxBYsWLFixYsWLFixYsWLFixYsWLFixYsWLFixYsWLFixYsWLFixTzevXr169evXr169evXr169evXr169eu9Ba5/PKcmX+FDbuVRIkSJMfAAVugVkS/EFixYsHUlB3gcnePDvRgiwmfHDhxU4AAC88BrSbiCxYsWLFixYsWLFixYsWLFixYsWLFixYsWLFixYsWLFixYsWLFixYsWLFixYsWLFixYsWLFixYsWLFixYsWKb13EWatPBeoeAKt9Y8eTBQS/w2Anh+ILFixYsU3fgKMp6HyBwzOFjfyRHAyxY7UcSfwwnRd8hG2qB48+OHDhw4cOHDhw4cOHDhw4cOHDhw4cOHDhw4cOHDhw4cOHDhw4cOHDhw4cOHDhw4cOHDhw4cOHDhw4cOHDhwAV3B6U2+T8Ha/a2p7jO+xG25GVXmCZKfDh/Pg3938sgIkCg/7QP63C3kYKFChQoUKCrkto2tKcFwC/ezJB65lxKiQya01zVY0vEHHjPMfeEhneQYlyeVTp06dOnTp06dOnTp06dOnTp06dOnTp06dOnTp06dOnTp06dOnTp06dOnTp06dOnTp06dOnTp06dOnTp06dOnTp08Fq9q9n/f9/3/JC1q1atWrVq1atJD/17P/XtXs/8woyVkyZMmTJkyZMmTJkyZMmTJkyZMmTJkyZMmTJkyZMmTJkyZMmTJkyZMmTJkyZMmTJkyZMmTJkyZMmTJkyZMmTJkyZMmTqyPg4cOHDhw4cOHDhw4cOHDhw4cOHDhw4cOHDhw4cOHDhw4cOHDhw4cOH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" alt="Mizaroo">
+      <span class="nav-logo-label">Dossier Confidentiel — MALMAS</span>
+    </a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#hero">Accueil</a></li>
+      <li><a href="#about">MALMAS</a></li>
+      <li><a href="#problem">Contexte</a></li>
+      <li><a href="#solution">Solution</a></li>
+      <li><a href="#architecture">Architecture</a></li>
+      <li><a href="#roadmap">Roadmap</a></li>
+      <li><a href="#value">Valeur</a></li>
+      <li><a href="#mizaroo-value">Mizaroo</a></li>
+      <li><a href="#partnership">Alliance</a></li>
+      <li><a href="#rapport">Rapport</a></li>
+    </ul>
+    <div style="display:flex;align-items:center;gap:1rem;">
+      <div class="theme-toggle" id="theme-toggle" title="Changer le thème"></div>
+      <button class="mobile-menu-btn" id="mobile-btn" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════ HERO ═══════ -->
+<section id="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span class="dot"></span>
+      Collaboration stratégique confidentielle
+    </div>
+    <h1>Cybersécurité<br><span class="gradient-text">Souveraine</span></h1>
+    <p class="hero-subtitle" style="max-width:600px;">Framework de collaboration institutionnelle pour la protection des infrastructures critiques nationales — Une alliance stratégique MALMAS × Mizaroo.</p>
+    <div style="display:flex;align-items:center;justify-content:center;gap:0.8rem;margin-bottom:2.5rem;flex-wrap:wrap;">
+      <span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1rem;padding:0.4rem 1.1rem;border-radius:8px;border:1px solid var(--border-medium);background:var(--bg-card);">MALMAS</span>
+      <span style="color:var(--accent-light);font-size:1.1rem;">×</span>
+      <span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1rem;padding:0.4rem 1.1rem;border-radius:8px;border:1px solid var(--border-medium);background:var(--bg-card);">Mizaroo</span>
+    </div>
+    <a href="#mizaroo-value" class="hero-cta">
+      Explorer le framework
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+    <div class="hero-metrics">
+      <div class="hero-metric">
+        <div class="value">2 acteurs</div>
+        <div class="desc">expertise technique × levier institutionnel</div>
+      </div>
+      <div class="hero-metric">
+        <div class="value">3 niveaux</div>
+        <div class="desc">d'architecture de défense</div>
+      </div>
+      <div class="hero-metric">
+        <div class="value">1 vision</div>
+        <div class="desc">souveraineté numérique nationale</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ ABOUT / MALMAS ═══════ -->
+<section id="about">
+  <div class="section-inner">
+    <div class="section-header fade-up">
+      <span class="label">L'expertise technique</span>
+      <h2>MALMAS — Excellence en cybersécurité</h2>
+      <p>Le partenaire technique de cette alliance. Une expertise internationale de premier plan au service de la souveraineté numérique de la République Démocratique du Congo.</p>
+    </div>
+    <div class="about-grid">
+      <div class="profile-card fade-up stagger-1">
+        <div class="profile-avatar">FM</div>
+        <h3>Frederic Masiala</h3>
+        <div class="profile-role">CEO & Architecte Principal — MALMAS</div>
+        <p>Plus de 15 années d'expérience dans les environnements critiques les plus exigeants d'Europe. Architecte réseau pour IRISNET (backbone de la Région de Bruxelles-Capitale), partenaire technique d'Euroclear et d'Orange Cyber Defense.</p>
+        <div class="credential-tags">
+          <span class="credential-tag">IRISNET Bruxelles</span>
+          <span class="credential-tag">Euroclear</span>
+          <span class="credential-tag">Orange CyberDefense</span>
+          <span class="credential-tag">Architecture réseau</span>
+          <span class="credential-tag">Pentesting</span>
+        </div>
+      </div>
+      <div class="expertise-list">
+        <div class="expertise-item fade-up stagger-1">
+          <div class="icon">🛡️</div>
+          <h4>Cybersécurité & Pentesting</h4>
+          <p>Tests d'intrusion, audits de sécurité, réponse aux incidents et architecture de défense en profondeur.</p>
+        </div>
+        <div class="expertise-item fade-up stagger-2">
+          <div class="icon">🌐</div>
+          <h4>Architecture Réseau & Datacenter</h4>
+          <p>Conception d'infrastructures critiques, backbone réseau, haute disponibilité et résilience opérationnelle.</p>
+        </div>
+        <div class="expertise-item fade-up stagger-3">
+          <div class="icon">🔄</div>
+          <h4>Transformation Digitale</h4>
+          <p>Accompagnement stratégique dans la modernisation des systèmes IT, migration cloud et optimisation des processus.</p>
+        </div>
+        <div class="expertise-item fade-up stagger-4">
+          <div class="icon">📋</div>
+          <h4>PCA & Continuité d'activité</h4>
+          <p>Plans de continuité et de reprise d'activité, gestion des risques et conformité réglementaire.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ PROBLEM ═══════ -->
+<section id="problem">
+  <div class="section-inner">
+    <div class="section-header fade-up">
+      <span class="label">Contexte stratégique</span>
+      <h2>Les menaces n'attendent pas</h2>
+      <p>Dans un monde interconnecté, les institutions financières centrales sont des cibles prioritaires. La protection des infrastructures critiques n'est plus une option, c'est une nécessité de souveraineté.</p>
+    </div>
+    <div class="threat-cards">
+      <div class="threat-card fade-up stagger-1">
+        <div class="threat-icon">⚠️</div>
+        <h3>Menaces persistantes avancées</h3>
+        <p>Les APT ciblent spécifiquement les institutions financières centrales avec des attaques sophistiquées et prolongées dans le temps.</p>
+        <div class="stat-bar"><div class="stat-bar-fill" data-width="92"></div></div>
+      </div>
+      <div class="threat-card fade-up stagger-2">
+        <div class="threat-icon">🔓</div>
+        <h3>Ransomware & extorsion</h3>
+        <p>Le secteur bancaire est la cible principale des attaques par ransomware, avec des impacts opérationnels et réputationnels considérables.</p>
+        <div class="stat-bar"><div class="stat-bar-fill" data-width="85"></div></div>
+      </div>
+      <div class="threat-card fade-up stagger-3">
+        <div class="threat-icon">👁️</div>
+        <h3>Espionnage & exfiltration</h3>
+        <p>Les données financières souveraines représentent une cible stratégique pour les acteurs étatiques et les organisations malveillantes.</p>
+        <div class="stat-bar"><div class="stat-bar-fill" data-width="78"></div></div>
+      </div>
+      <div class="threat-card fade-up stagger-4">
+        <div class="threat-icon">🌍</div>
+        <h3>Conformité internationale</h3>
+        <p>Les standards internationaux (ISO 27001, NIST, PCI-DSS) imposent des niveaux de maturité sécurité toujours plus élevés.</p>
+        <div class="stat-bar"><div class="stat-bar-fill" data-width="70"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ SOLUTION ═══════ -->
+<section id="solution">
+  <div class="section-inner">
+    <div class="section-header fade-up">
+      <span class="label">Notre approche</span>
+      <h2>Une solution en 3 niveaux de protection</h2>
+      <p>Une architecture de cybersécurité hybride combinant expertise locale et capacités internationales pour une couverture complète.</p>
+    </div>
+
+    <div class="solution-tabs fade-up">
+      <button class="solution-tab active" data-tab="consultance">Niveau 1 · Consultance</button>
+      <button class="solution-tab" data-tab="nsoc">Niveau 2 · SOC Local</button>
+      <button class="solution-tab" data-tab="supersoc">Niveau 3 · SOC Externe</button>
+    </div>
+
+    <!-- Tab 1 -->
+    <div class="tab-content active" id="tab-consultance">
+      <div class="solution-detail">
+        <div class="solution-text">
+          <h3>Consultance & Gouvernance IT</h3>
+          <p>Un accompagnement stratégique de haut niveau pour structurer la cybersécurité de l'institution et piloter la transformation numérique de manière sécurisée.</p>
+          <ul class="feature-list">
+            <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 13l4 4L19 7"/></svg></span>Assistance à maîtrise d'ouvrage & maîtrise d'œuvre</li>
+            <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 13l4 4L19 7"/></svg></span>Conseil en architecture réseau & cybersécurité</li>
+            <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 13l4 4L19 7"/></svg></span>Audit de maturité sécurité & plan de remédiation</li>
+            <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 13l4 4L19 7"/></svg></span>Pilotage stratégique & reporting décisionnel</li>
+          </ul>
+        </div>
+        <div class="solution-visual">
+          <svg viewBox="0 0 340 280" fill="none" xmlns="http://www.w3.org/2000/svg" style="position:relative;z-index:2;width:100%;max-width:340px;">
+            <!-- Strategy icon -->
+            <rect x="110" y="20" width="120" height="50" rx="12" class="visual-node"/>
+            <text x="170" y="50" text-anchor="middle" class="visual-text-main">Stratégie</text>
+            <line x1="170" y1="70" x2="170" y2="100" class="visual-line"/>
+            <line x1="170" y1="100" x2="80" y2="130" class="visual-line"/>
+            <line x1="170" y1="100" x2="260" y2="130" class="visual-line"/>
+            <rect x="20" y="130" width="120" height="45" rx="10" class="visual-node"/>
+            <text x="80" y="157" text-anchor="middle" class="visual-text-main">MOA / MOE</text>
+            <rect x="200" y="130" width="120" height="45" rx="10" class="visual-node"/>
+            <text x="260" y="157" text-anchor="middle" class="visual-text-main">Architecture</text>
+            <line x1="80" y1="175" x2="80" y2="210" class="visual-line"/>
+            <line x1="260" y1="175" x2="260" y2="210" class="visual-line"/>
+            <rect x="20" y="210" width="120" height="45" rx="10" class="visual-node"/>
+            <text x="80" y="237" text-anchor="middle" class="visual-text-main">Audit</text>
+            <rect x="200" y="210" width="120" height="45" rx="10" class="visual-node"/>
+            <text x="260" y="237" text-anchor="middle" class="visual-text-main">Reporting</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab 2 -->
+    <div class="tab-content" id="tab-nsoc">
+      <div class="solution-detail">
+        <div class="solution-text">
+          <h3>SOC Local — NSOC</h3>
+          <p>Un centre opérationnel de sécurité déployé localement, opéré comme un service managé. La Banque Centrale bénéficie d'une surveillance 24/7 sans gérer la complexité opérationnelle.</p>
+          <ul class="feature-list">
+            <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 13l4 4L19 7"/></svg></span>Monitoring continu des équipements réseau & sécurité</li>
+            <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 13l4 4L19 7"/></svg></span>Détection et corrélation d'alertes en temps réel</li>
+            <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 13l4 4L19 7"/></svg></span>Intervention rapide sur incidents de sécurité</li>
+            <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 13l4 4L19 7"/></svg></span>SOC-as-a-Service — facturation mensuelle transparente</li>
+          </ul>
+        </div>
+        <div class="solution-visual">
+          <svg viewBox="0 0 340 280" fill="none" xmlns="http://www.w3.org/2000/svg" style="position:relative;z-index:2;width:100%;max-width:340px;">
+            <!-- Central SOC -->
+            <circle cx="170" cy="140" r="50" class="visual-node" stroke-width="2"/>
+            <text x="170" y="135" text-anchor="middle" class="visual-text-main">NSOC</text>
+            <text x="170" y="152" text-anchor="middle" class="visual-text-sub">24/7</text>
+            <!-- Endpoints -->
+            <rect x="20" y="20" width="80" height="35" rx="8" class="visual-node"/>
+            <text x="60" y="42" text-anchor="middle" class="visual-text-sub">Firewall</text>
+            <line x1="100" y1="37" x2="130" y2="110" class="visual-line"/>
+            <rect x="240" y="20" width="80" height="35" rx="8" class="visual-node"/>
+            <text x="280" y="42" text-anchor="middle" class="visual-text-sub">Serveurs</text>
+            <line x1="240" y1="37" x2="210" y2="110" class="visual-line"/>
+            <rect x="20" y="230" width="80" height="35" rx="8" class="visual-node"/>
+            <text x="60" y="252" text-anchor="middle" class="visual-text-sub">Réseau</text>
+            <line x1="100" y1="247" x2="130" y2="170" class="visual-line"/>
+            <rect x="240" y="230" width="80" height="35" rx="8" class="visual-node"/>
+            <text x="280" y="252" text-anchor="middle" class="visual-text-sub">Endpoints</text>
+            <line x1="240" y1="247" x2="210" y2="170" class="visual-line"/>
+            <!-- Alert pulse -->
+            <circle cx="170" cy="140" r="55" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.3" class="visual-accent-fill" style="fill:none;stroke:var(--accent)">
+              <animate attributeName="r" values="55;75;55" dur="3s" repeatCount="indefinite"/>
+              <animate attributeName="opacity" values="0.3;0;0.3" dur="3s" repeatCount="indefinite"/>
+            </circle>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab 3 -->
+    <div class="tab-content" id="tab-supersoc">
+      <div class="solution-detail">
+        <div class="solution-text">
+          <h3>Super-SOC Externe</h3>
+          <p>Un partenaire international de premier plan assure la supervision de niveau supérieur : analyses avancées, threat intelligence, tests d'intrusion et simulations d'attaques à grande échelle.</p>
+          <ul class="feature-list">
+            <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 13l4 4L19 7"/></svg></span>Analyse avancée des menaces & threat intelligence</li>
+            <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 13l4 4L19 7"/></svg></span>Pentests & simulations d'attaques red team</li>
+            <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 13l4 4L19 7"/></svg></span>Collecte et corrélation de logs à grande échelle</li>
+            <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 13l4 4L19 7"/></svg></span>Rapports d'analyse approfondis & recommandations</li>
+          </ul>
+        </div>
+        <div class="solution-visual">
+          <svg viewBox="0 0 340 280" fill="none" xmlns="http://www.w3.org/2000/svg" style="position:relative;z-index:2;width:100%;max-width:340px;">
+            <!-- Globe -->
+            <circle cx="170" cy="90" r="40" class="visual-node" stroke-width="2"/>
+            <text x="170" y="86" text-anchor="middle" class="visual-text-main">Super</text>
+            <text x="170" y="100" text-anchor="middle" class="visual-text-sub">SOC Int'l</text>
+            <ellipse cx="170" cy="90" rx="40" ry="15" fill="none" stroke="currentColor" stroke-width="0.6" opacity="0.3" style="stroke:var(--accent)"/>
+            <!-- Connection -->
+            <line x1="170" y1="130" x2="170" y2="170" stroke="currentColor" stroke-width="2" style="stroke:var(--accent)" stroke-dasharray="4 4"/>
+            <text x="195" y="155" class="visual-text-sub" style="fill:var(--accent-light)">Logs & Alertes</text>
+            <!-- Local SOC -->
+            <rect x="110" y="170" width="120" height="45" rx="12" class="visual-node" stroke-width="2"/>
+            <text x="170" y="197" text-anchor="middle" class="visual-text-main">NSOC Local</text>
+            <!-- Down to Banque -->
+            <line x1="170" y1="215" x2="170" y2="240" stroke="currentColor" stroke-width="1.5" style="stroke:var(--border-medium)" stroke-dasharray="4 4"/>
+            <rect x="90" y="240" width="160" height="30" rx="8" class="visual-node"/>
+            <text x="170" y="260" text-anchor="middle" class="visual-text-sub">Banque Centrale</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ ARCHITECTURE ═══════ -->
+<section id="architecture">
+  <div class="section-inner">
+    <div class="section-header fade-up">
+      <span class="label">Architecture</span>
+      <h2>Modèle hybride Local + International</h2>
+      <p>Une architecture en couches garantissant une protection de bout en bout, de la surveillance locale à l'analyse internationale avancée.</p>
+    </div>
+
+    <div class="arch-diagram fade-up">
+      <div class="arch-layers">
+        <div class="arch-layer">
+          <div class="arch-layer-num">01</div>
+          <div class="arch-layer-content">
+            <h4>Couche stratégique — Consultance & Gouvernance</h4>
+            <p>Pilotage, architecture cible, audit de maturité, assistance à maîtrise d'ouvrage et d'œuvre. Cadrage stratégique de l'ensemble du dispositif de sécurité.</p>
+          </div>
+        </div>
+        <div class="arch-connector"></div>
+        <div class="arch-layer">
+          <div class="arch-layer-num">02</div>
+          <div class="arch-layer-content">
+            <h4>Couche opérationnelle — SOC Local (NSOC)</h4>
+            <p>Surveillance continue, détection, corrélation d'alertes et réponse aux incidents. Équipe locale déployée en mode SOC-as-a-Service avec facturation mensuelle.</p>
+          </div>
+        </div>
+        <div class="arch-connector"></div>
+        <div class="arch-layer">
+          <div class="arch-layer-num">03</div>
+          <div class="arch-layer-content">
+            <h4>Couche avancée — Super-SOC International</h4>
+            <p>Threat intelligence, analyses de menaces avancées, pentests, simulations red team, audits approfondis et rapports stratégiques par un partenaire de rang international.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- SVG Architecture Diagram -->
+      <div class="arch-svg-container" style="margin-top:3rem;">
+        <svg viewBox="0 0 800 350" xmlns="http://www.w3.org/2000/svg">
+          <!-- Background layers -->
+          <rect x="20" y="10" width="760" height="90" rx="16" fill="var(--accent-glow)" stroke="var(--accent)" stroke-width="1" opacity="0.5"/>
+          <text x="400" y="38" text-anchor="middle" class="visual-text-main" font-size="14" style="fill:var(--accent-light)">SUPER-SOC INTERNATIONAL</text>
+          <text x="400" y="56" text-anchor="middle" class="visual-text-sub" font-size="11">Threat Intelligence · Pentests · Red Team · Analyse avancée</text>
+          <text x="400" y="74" text-anchor="middle" class="visual-text-sub" font-size="10">Partenaire de rang mondial</text>
+
+          <!-- Arrow down -->
+          <line x1="400" y1="100" x2="400" y2="130" stroke="var(--accent)" stroke-width="1.5" stroke-dasharray="5 3"/>
+          <polygon points="394,125 400,135 406,125" style="fill:var(--accent)"/>
+          <text x="430" y="118" class="visual-text-sub" font-size="9" style="fill:var(--accent-light)">Logs & Rapports</text>
+
+          <!-- NSOC Layer -->
+          <rect x="100" y="135" width="600" height="80" rx="14" fill="var(--bg-card)" stroke="var(--border-medium)" stroke-width="1.5"/>
+          <text x="400" y="162" text-anchor="middle" class="visual-text-main" font-size="14">NSOC — SOC LOCAL KINSHASA</text>
+          <text x="400" y="182" text-anchor="middle" class="visual-text-sub" font-size="11">Monitoring 24/7 · Détection · Corrélation · Réponse incidents</text>
+          <text x="400" y="200" text-anchor="middle" class="visual-text-sub" font-size="10">SOC-as-a-Service · Équipe locale dédiée</text>
+
+          <!-- Arrows down to BCC -->
+          <line x1="250" y1="215" x2="250" y2="255" stroke="var(--border-medium)" stroke-width="1" stroke-dasharray="4 3"/>
+          <line x1="400" y1="215" x2="400" y2="255" stroke="var(--border-medium)" stroke-width="1" stroke-dasharray="4 3"/>
+          <line x1="550" y1="215" x2="550" y2="255" stroke="var(--border-medium)" stroke-width="1" stroke-dasharray="4 3"/>
+
+          <!-- BCC Infrastructure -->
+          <rect x="50" y="255" width="700" height="80" rx="14" fill="var(--bg-card)" stroke="var(--border-subtle)" stroke-width="1.5"/>
+          <text x="400" y="282" text-anchor="middle" class="visual-text-main" font-size="14">INFRASTRUCTURE — BANQUE CENTRALE DU CONGO</text>
+
+          <!-- Sub-elements -->
+          <rect x="80" y="295" width="120" height="28" rx="6" fill="var(--accent-glow)" stroke="var(--border-subtle)" stroke-width="0.5"/>
+          <text x="140" y="314" text-anchor="middle" class="visual-text-sub" font-size="10">Firewalls</text>
+
+          <rect x="220" y="295" width="120" height="28" rx="6" fill="var(--accent-glow)" stroke="var(--border-subtle)" stroke-width="0.5"/>
+          <text x="280" y="314" text-anchor="middle" class="visual-text-sub" font-size="10">Serveurs Core</text>
+
+          <rect x="360" y="295" width="120" height="28" rx="6" fill="var(--accent-glow)" stroke="var(--border-subtle)" stroke-width="0.5"/>
+          <text x="420" y="314" text-anchor="middle" class="visual-text-sub" font-size="10">Base de données</text>
+
+          <rect x="500" y="295" width="120" height="28" rx="6" fill="var(--accent-glow)" stroke="var(--border-subtle)" stroke-width="0.5"/>
+          <text x="560" y="314" text-anchor="middle" class="visual-text-sub" font-size="10">Réseau interne</text>
+
+          <rect x="640" y="295" width="90" height="28" rx="6" fill="var(--accent-glow)" stroke="var(--border-subtle)" stroke-width="0.5"/>
+          <text x="685" y="314" text-anchor="middle" class="visual-text-sub" font-size="10">Endpoints</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ ROADMAP ═══════ -->
+<section id="roadmap">
+  <div class="section-inner">
+    <div class="section-header fade-up">
+      <span class="label">Roadmap</span>
+      <h2>Plan de déploiement</h2>
+      <p>Une mise en œuvre progressive et structurée, de l'audit initial au déploiement opérationnel complet.</p>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-phase">Phase 1</div>
+        <h3>Audit & Évaluation de maturité</h3>
+        <p>Évaluation complète de l'état actuel de la sécurité : cartographie des actifs, identification des vulnérabilités, analyse des risques et benchmark par rapport aux standards internationaux.</p>
+        <span class="timeline-duration">Mois 1 — 2</span>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-phase">Phase 2</div>
+        <h3>Architecture cible & Cadrage</h3>
+        <p>Définition de l'architecture de sécurité cible, rédaction du plan de remédiation, spécifications techniques du SOC local et sélection du partenaire international.</p>
+        <span class="timeline-duration">Mois 2 — 4</span>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-phase">Phase 3</div>
+        <h3>Déploiement du NSOC local</h3>
+        <p>Installation des outils de monitoring, configuration SIEM, déploiement de l'équipe locale, mise en place des procédures de détection et de réponse aux incidents.</p>
+        <span class="timeline-duration">Mois 4 — 7</span>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-phase">Phase 4</div>
+        <h3>Intégration du Super-SOC international</h3>
+        <p>Connexion sécurisée avec le partenaire international, transfert de logs, mise en place des analyses avancées, premiers pentests et simulations d'attaques red team.</p>
+        <span class="timeline-duration">Mois 7 — 10</span>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-phase">Phase 5</div>
+        <h3>Opérations & Amélioration continue</h3>
+        <p>Surveillance opérationnelle 24/7 complète, optimisation continue, reporting stratégique régulier et formation des équipes internes de la Banque Centrale.</p>
+        <span class="timeline-duration">Mois 10+ (continu)</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ VALUE ═══════ -->
+<section id="value">
+  <div class="section-inner">
+    <div class="section-header fade-up">
+      <span class="label">Valeur stratégique</span>
+      <h2>Au-delà de la sécurité, un levier de souveraineté</h2>
+      <p>Ce projet ne se limite pas à la protection technique. Il s'agit d'un investissement stratégique dans la résilience et l'indépendance numérique nationale.</p>
+    </div>
+
+    <div class="value-grid">
+      <div class="value-card fade-up stagger-1">
+        <div class="value-icon">🏛️</div>
+        <h3>Souveraineté numérique</h3>
+        <p>Reprendre le contrôle sur la protection des infrastructures critiques nationales. Réduire la dépendance aux acteurs étrangers tout en s'appuyant sur l'expertise internationale.</p>
+      </div>
+      <div class="value-card fade-up stagger-2">
+        <div class="value-icon">🔒</div>
+        <h3>Résilience opérationnelle</h3>
+        <p>Garantir la continuité des opérations bancaires centrales face aux cybermenaces. Minimiser les temps d'indisponibilité et protéger la confiance institutionnelle.</p>
+      </div>
+      <div class="value-card fade-up stagger-3">
+        <div class="value-icon">📊</div>
+        <h3>Maturité sécurité</h3>
+        <p>Atteindre un niveau de maturité conforme aux standards internationaux (ISO 27001, NIST). Positionner la Banque Centrale comme référence en matière de cybersécurité en Afrique centrale.</p>
+      </div>
+      <div class="value-card fade-up stagger-4">
+        <div class="value-icon">🤝</div>
+        <h3>Transfert de compétences</h3>
+        <p>Former les équipes internes, développer les talents locaux en cybersécurité et construire une capacité nationale durable de défense numérique.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ Mizaroo STRATEGIC VALUE ═══════ -->
+<section id="mizaroo-value">
+  <div class="section-inner">
+    <div class="mizaroo-header fade-up">
+      <div class="mizaroo-badge">Analyse de positionnement</div>
+      <h2>Valeur stratégique pour <span class="cyan-text">Mizaroo</span></h2>
+      <p>Ce partenariat positionne Mizaroo comme acteur structurant d'un projet de souveraineté numérique nationale. Trois horizons de création de valeur se dessinent clairement.</p>
+    </div>
+
+    <div class="mizaroo-pillars">
+
+      <!-- Pillar 1 — Institutional Role -->
+      <div class="mizaroo-pillar fade-up stagger-1">
+        <div class="pillar-phase">Rôle institutionnel</div>
+        <h3>Positionnement stratégique</h3>
+        <div class="pillar-items">
+          <div class="pillar-item"><div class="pillar-dot"></div><span>Porteur institutionnel du projet auprès des décideurs de la Banque Centrale</span></div>
+          <div class="pillar-item"><div class="pillar-dot"></div><span>Interlocuteur stratégique de premier plan pour le cadrage et la gouvernance</span></div>
+          <div class="pillar-item"><div class="pillar-dot"></div><span>Co-architecte de la vision transformation numérique et cybersécurité</span></div>
+          <div class="pillar-item"><div class="pillar-dot"></div><span>Catalyseur de la relation entre expertise technique et décision institutionnelle</span></div>
+        </div>
+      </div>
+
+      <!-- Pillar 2 — Contractual Value -->
+      <div class="mizaroo-pillar fade-up stagger-2">
+        <div class="pillar-phase">Valeur contractuelle</div>
+        <h3>Structuration & gouvernance</h3>
+        <div class="pillar-items">
+          <div class="pillar-item"><div class="pillar-dot"></div><span>Co-portage contractuel du projet avec partage équilibré des responsabilités</span></div>
+          <div class="pillar-item"><div class="pillar-dot"></div><span>Structure de rémunération alignée sur la valeur apportée</span></div>
+          <div class="pillar-item"><div class="pillar-dot"></div><span>Siège au comité de pilotage stratégique du programme</span></div>
+          <div class="pillar-item"><div class="pillar-dot"></div><span>Accès au reporting opérationnel et aux données de performance</span></div>
+        </div>
+      </div>
+
+      <!-- Pillar 3 — Long Term -->
+      <div class="mizaroo-pillar fade-up stagger-3">
+        <div class="pillar-phase">Vision long terme</div>
+        <h3>Expansion & souveraineté</h3>
+        <div class="pillar-items">
+          <div class="pillar-item"><div class="pillar-dot"></div><span>Joint Venture ou consortium formel pour les marchés institutionnels</span></div>
+          <div class="pillar-item"><div class="pillar-dot"></div><span>Expansion vers d'autres institutions publiques et financières de la RDC</span></div>
+          <div class="pillar-item"><div class="pillar-dot"></div><span>Positionnement régional : Afrique centrale, CEMAC, SADC</span></div>
+          <div class="pillar-item"><div class="pillar-dot"></div><span>Intégration de modules complémentaires : IA, analytics, reporting avancé</span></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Institutional Access Lever -->
+    <div class="institutional-lever fade-up">
+      <div class="lever-icon">🏛️</div>
+      <div class="lever-content">
+        <h4>Facteur clé de succès — Accès institutionnel</h4>
+        <p>La capacité à engager un dialogue stratégique au plus haut niveau décisionnel constitue un levier déterminant. Ce positionnement unique permet de dépasser les circuits opérationnels classiques et d'inscrire le projet directement dans l'agenda stratégique de l'institution.</p>
+        <div class="lever-tags">
+          <span class="lever-tag">Accès décisionnel</span>
+          <span class="lever-tag">Portage stratégique</span>
+          <span class="lever-tag">Capital relationnel</span>
+          <span class="lever-tag">Vision institutionnelle</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════ STRATEGIC PARTNERSHIP ═══════ -->
+<section id="partnership">
+  <div class="section-inner">
+    <div class="partnership-header fade-up">
+      <div class="partnership-badge">Framework de co-gouvernance</div>
+      <h2>Co-pilotage <span class="gold-text">Stratégique</span></h2>
+      <div class="partnership-subtitle">
+        <span class="partner-entity">MALMAS</span>
+        <span class="partner-arrow">×</span>
+        <span class="partner-entity">Mizaroo</span>
+      </div>
+      <p class="partnership-intro">Un partenariat structurant repose sur un cadre de gouvernance clair. Ce framework définit les principes de co-décision, de co-responsabilité et d'équilibre stratégique entre les deux acteurs.</p>
+    </div>
+
+    <div class="accord-container">
+
+      <!-- Accordion 1 — Court Terme -->
+      <div class="accord-card open" data-accord="1">
+        <div class="accord-header">
+          <div class="accord-num">01</div>
+          <div class="accord-title-block">
+            <h3>Immediate Value — Court Terme</h3>
+            <span class="accord-sub">Co-cadrage contractuel & répartition équilibrée</span>
+          </div>
+          <div class="accord-chevron">
+            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+        </div>
+        <div class="accord-body">
+          <div class="accord-body-inner">
+            <div class="governance-grid">
+              <div class="gov-item"><div class="gov-bullet"></div><p>Co-portage du contrat : MALMAS (expertise technique) × Mizaroo (portage institutionnel & stratégique)</p></div>
+              <div class="gov-item"><div class="gov-bullet"></div><p>Structure juridique conjointe : identification du véhicule contractuel et de la chaîne de facturation</p></div>
+              <div class="gov-item"><div class="gov-bullet"></div><p>Modèle de rémunération équilibré reflétant la valeur apportée par chaque partie</p></div>
+              <div class="gov-item"><div class="gov-bullet"></div><p>Co-responsabilité : répartition claire des obligations légales et opérationnelles</p></div>
+              <div class="gov-item"><div class="gov-bullet"></div><p>Relation client partagée — Mizaroo comme interface stratégique, MALMAS comme interface technique</p></div>
+              <div class="gov-item"><div class="gov-bullet"></div><p>Matrice de co-décision : validation conjointe des engagements, signatures et représentations</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Accordion 2 — Moyen Terme -->
+      <div class="accord-card" data-accord="2">
+        <div class="accord-header">
+          <div class="accord-num">02</div>
+          <div class="accord-title-block">
+            <h3>Mid-Term Strategic Positioning — Moyen Terme</h3>
+            <span class="accord-sub">Co-gouvernance du SOC & propriété partagée</span>
+          </div>
+          <div class="accord-chevron">
+            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+        </div>
+        <div class="accord-body">
+          <div class="accord-body-inner">
+            <div class="governance-grid">
+              <div class="gov-item"><div class="gov-bullet"></div><p>Statut de co-partenaire stratégique officiel inscrit dans les documents contractuels</p></div>
+              <div class="gov-item"><div class="gov-bullet"></div><p>Exclusivité partagée sur le périmètre Banque Centrale et institutions associées</p></div>
+              <div class="gov-item"><div class="gov-bullet"></div><p>Co-propriété intellectuelle sur les livrables, méthodologies et frameworks développés</p></div>
+              <div class="gov-item"><div class="gov-bullet"></div><p>Comité de co-pilotage paritaire : reporting, escalade, arbitrage et décisions stratégiques</p></div>
+              <div class="gov-item"><div class="gov-bullet"></div><p>Accès égal aux données opérationnelles, rapports de sécurité et indicateurs de performance</p></div>
+              <div class="gov-item"><div class="gov-bullet"></div><p>Droit d'intégration de modules complémentaires Mizaroo : IA, analytics, reporting décisionnel</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Accordion 3 — Long Terme -->
+      <div class="accord-card" data-accord="3">
+        <div class="accord-header">
+          <div class="accord-num">03</div>
+          <div class="accord-title-block">
+            <h3>Long-Term Vision — Vision Structurante</h3>
+            <span class="accord-sub">Consortium paritaire, expansion & leadership régional</span>
+          </div>
+          <div class="accord-chevron">
+            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+        </div>
+        <div class="accord-body">
+          <div class="accord-body-inner">
+            <div class="governance-grid">
+              <div class="gov-item"><div class="gov-bullet"></div><p>Joint Venture paritaire MALMAS × Mizaroo — entité dédiée à la cybersécurité souveraine</p></div>
+              <div class="gov-item"><div class="gov-bullet"></div><p>Déploiement conjoint vers d'autres institutions publiques, financières et stratégiques de la RDC</p></div>
+              <div class="gov-item"><div class="gov-bullet"></div><p>Co-expansion régionale : Afrique centrale, CEMAC, SADC — leadership partagé</p></div>
+              <div class="gov-item"><div class="gov-bullet"></div><p>Co-construction d'une capacité souveraine locale avec transfert croisé de compétences</p></div>
+              <div class="gov-item"><div class="gov-bullet"></div><p>Offre conjointe de formation certifiante et de renforcement des capacités nationales</p></div>
+              <div class="gov-item"><div class="gov-bullet"></div><p>Ambition commune : pôle de référence en cybersécurité souveraine pour l'Afrique francophone</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="partnership-divider"></div>
+  </div>
+</section>
+
+<!-- ═══════ RAPPORT — COMPTE-RENDU STRATÉGIQUE ═══════ -->
+<section id="rapport">
+  <div class="section-inner">
+
+    <!-- Header -->
+    <div class="rapport-header fade-up">
+      <div class="rapport-badge">&#128203; Document confidentiel — Mizaroo internal</div>
+      <h2>Rapport <span class="red-text">Stratégique</span></h2>
+      <p>Compte-rendu détaillé de la réunion exploratoire MALMAS × Mizaroo. Analyse interne des réponses obtenues, identification des forces, zones d'ombre et recommandations stratégiques.</p>
+    </div>
+
+    <!-- Meeting Meta -->
+    <div class="meeting-meta fade-up">
+      <div class="meta-item">
+        <span class="meta-label">Date</span>
+        <span class="meta-value">18 Février 2026</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Lieu</span>
+        <span class="meta-value">Avenue Kilolo Musamba Lubemba 83, Kinshasa</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Participants</span>
+        <span class="meta-value">Francis (Mizaroo) — Frederic Masiala (MALMAS)</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Durée</span>
+        <span class="meta-value">~2h30 — Entretien exploratoire</span>
+      </div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="rapport-tabs fade-up">
+      <button class="rapport-tab active" data-rtab="minutes">Compte-Rendu</button>
+      <button class="rapport-tab" data-rtab="questions">Réponses Stratégiques</button>
+      <button class="rapport-tab" data-rtab="analysis">Analyse Interne</button>
+    </div>
+
+    <!-- ═══ PANEL 1: MINUTES ═══ -->
+    <div class="rapport-panel active" id="rtab-minutes">
+
+      <div class="minutes-block fade-up">
+        <h3><span class="m-icon">&#128101;</span> 1 — Présentation & Parcours de Frederic Masiala</h3>
+        <div class="minutes-point"><div class="minutes-bullet"></div><span>Fred se présente comme consultant indépendant en cybersécurité, spécialisé réseau et infrastructure. Il opère seul, sans équipe permanente — il mobilise les ressources de ses clients pour exécuter les missions.</span></div>
+        <div class="minutes-point"><div class="minutes-bullet"></div><span>Parcours européen significatif : architecte réseau sur IRISNET (backbone de la Région de Bruxelles-Capitale), missions chez Euroclear (sous entité belge, pas sous la marque MALMAS).</span></div>
+        <div class="minutes-point"><div class="minutes-bullet"></div><span>En RDC : contrat actif avec la DGDA (administration douanière) et POC initié à la DGI (administration fiscale) — ce dernier a été avorté avant finalisation.</span></div>
+        <div class="minutes-point"><div class="minutes-bullet"></div><span>Rawbank mentionnée parmi les références, mais sans détail approfondi sur la nature exacte de l'intervention.</span></div>
+        <div class="minutes-point"><div class="minutes-bullet"></div><span>Fred a partagé des anecdotes techniques précises : incident de protocole FTP chez Euroclear (2017-2018) et bug de temporisation de switch dans un hôpital connecté à IRISNET — démontrant une expertise réelle en diagnostic réseau.</span></div>
+      </div>
+
+      <div class="minutes-block fade-up">
+        <h3><span class="m-icon">&#128295;</span> 2 — Capacité Technique & Approche SOC</h3>
+        <div class="minutes-point"><div class="minutes-bullet"></div><span>Fred préconise fortement l'écosystème Fortinet plutôt que Cisco pour les institutions comme la BCC. Il justifie ce choix par le rapport fonctionnalités/coût et la simplicité d'intégration.</span></div>
+        <div class="minutes-point"><div class="minutes-bullet"></div><span>Le SOC tel qu'envisagé par Fred est décrit comme « simple à mettre en place » : écrans, VPN, outils de monitoring — déployable en une semaine selon lui.</span></div>
+        <div class="minutes-point"><div class="minutes-bullet"></div><span>SIEM préféré : la solution intégrée Fortinet, ou Splunk pour les environnements premium. Pas de mention d'alternatives comme QRadar ou Sentinel.</span></div>
+        <div class="minutes-point"><div class="minutes-bullet"></div><span>Recrutement envisagé de juniors IT locaux pour les opérations SOC quotidiennes — Fred superviserait à distance ou en consultant ponctuel.</span></div>
+        <div class="minutes-point"><div class="minutes-bullet"></div><span>Certifications : Cisco (non renouvelée depuis 2020), Fortinet (en cours / priorité actuelle), TOGAF. Pas de CISSP ni de certifications offensives (OSCP, CEH).</span></div>
+      </div>
+
+      <div class="minutes-block fade-up">
+        <h3><span class="m-icon">&#127760;</span> 3 — Partenaire Super-SOC International</h3>
+        <div class="minutes-point"><div class="minutes-bullet"></div><span>Fred mentionne « CHELS » et le méga-SOC de Fortinet comme partenaires potentiels pour la couverture 24/7 de niveau supérieur.</span></div>
+        <div class="minutes-point"><div class="minutes-bullet"></div><span>Aucun contrat actif avec un partenaire SOC international — Fred déclare « les suivre depuis un mois » et être « en contact avec leur CEO ».</span></div>
+        <div class="minutes-point"><div class="minutes-bullet"></div><span>Alternative proposée : utiliser les capacités SOC natives de Fortinet si le client adopte déjà l'infrastructure Fortinet — ce qui limiterait la dépendance à un tiers.</span></div>
+        <div class="minutes-point"><div class="minutes-bullet"></div><span>Ce point reste la zone la plus floue du dispositif technique proposé. Aucune preuve contractuelle ou lettre d'intention n'a été présentée.</span></div>
+      </div>
+
+      <div class="minutes-block fade-up">
+        <h3><span class="m-icon">&#128176;</span> 4 — Modèle Économique & Contractuel</h3>
+        <div class="minutes-point"><div class="minutes-bullet"></div><span>Honoraires MALMAS : fourchette de 10 000 à 12 000 USD/mois (minimum vital : 10K, zone de confort : 12K).</span></div>
+        <div class="minutes-point"><div class="minutes-bullet"></div><span>SOC local (opérateurs, infrastructures) : estimation additionnelle de 5 000 à 8 000 USD/mois.</span></div>
+        <div class="minutes-point"><div class="minutes-bullet"></div><span>Fred préfère un modèle OPEX (facturation récurrente mensuelle) plutôt que CAPEX, pour maintenir un flux régulier.</span></div>
+        <div class="minutes-point"><div class="minutes-bullet"></div><span>Durée contractuelle souhaitée : minimum 1 an, idéalement 3 ans pour amortir le setup initial.</span></div>
+        <div class="minutes-point"><div class="minutes-bullet"></div><span>Point critique : Fred insiste pour rester sous le seuil de 54-55K USD afin d'éviter les procédures de marché public (appel d'offres). Cette stratégie questionne la scalabilité et la transparence.</span></div>
+        <div class="minutes-point"><div class="minutes-bullet"></div><span>Référence au modèle DGDA : paiement en cash, distribution à 2 entités, le reste étant la marge de Fred. Un expert-comptable certifié (ancien auditeur Deloitte) gère la comptabilité.</span></div>
+      </div>
+
+      <div class="minutes-block fade-up">
+        <h3><span class="m-icon">&#129309;</span> 5 — Rôle de Mizaroo & Structure Partenariale</h3>
+        <div class="minutes-point"><div class="minutes-bullet"></div><span>Fred est venu vers Francis principalement pour l'accès institutionnel — le réseau de contacts de Francis auprès de la BCC (via son père connecté au Vice-Gouverneur).</span></div>
+        <div class="minutes-point"><div class="minutes-bullet"></div><span>Position initiale de Fred : MALMAS doit porter le contrat (nécessaire pour le statut de partenaire Fortinet). Il est réticent à un rôle de sous-traitant.</span></div>
+        <div class="minutes-point"><div class="minutes-bullet"></div><span>Contre-proposition de Francis : Mizaroo porte le contrat, MALMAS intervient en sous-traitance technique. Fred a montré de la résistance mais une certaine flexibilité en fin de discussion.</span></div>
+        <div class="minutes-point"><div class="minutes-bullet"></div><span>Fred a proposé un mécanisme de commission : MALMAS touche 12K, la différence va à Francis et aux « stakeholders ».</span></div>
+        <div class="minutes-point"><div class="minutes-bullet"></div><span>Fred a utilisé l'analogie « Kerry James / Banlieusards » : Francis comme façade institutionnelle, Fred comme backbone technique. Francis a pris note sans valider cette répartition.</span></div>
+        <div class="minutes-point"><div class="minutes-bullet"></div><span>L'idée d'une joint venture paritaire a émergé comme compromis potentiel, mais aucun accord formel n'a été atteint.</span></div>
+      </div>
+
+      <div class="minutes-block fade-up">
+        <h3><span class="m-icon">&#127970;</span> 6 — Stratégie Institutionnelle BCC</h3>
+        <div class="minutes-point"><div class="minutes-bullet"></div><span>Approche en deux temps validée : d'abord contacter les sous-directeurs IT de la BCC (contacts de Francis) pour du renseignement et un diagnostic informel, puis présenter au Vice-Gouverneur.</span></div>
+        <div class="minutes-point"><div class="minutes-bullet"></div><span>Francis a proposé une démonstration de vulnérabilités comme stratégie commerciale (pentest ou scan démonstratif). Fred a validé et s'est engagé à préparer des scénarios d'attaque documentés.</span></div>
+        <div class="minutes-point"><div class="minutes-bullet"></div><span>Logistique : présentations formelles au bureau de Francis, discussions stratégiques au bureau de Fred.</span></div>
+        <div class="minutes-point"><div class="minutes-bullet"></div><span>Fred insiste sur la discrétion absolue : aucune présence sur réseaux sociaux, aucune exposition médiatique pour MALMAS. Il positionne cela comme un gage de sérieux professionnel.</span></div>
+      </div>
+
+    </div>
+
+    <!-- ═══ PANEL 2: STRATEGIC QUESTIONS ═══ -->
+    <div class="rapport-panel" id="rtab-questions">
+
+      <!-- Block 1: Credibility -->
+      <div class="question-card fade-up">
+        <h3><span class="m-icon">&#128270;</span> Bloc 1 — Crédibilité & Références</h3>
+
+        <div class="q-item">
+          <div class="q-status partial">&#9888;</div>
+          <div class="q-content">
+            <div class="q-question">Quels clients institutionnels ont été servis dans les 3 dernières années ?</div>
+            <div class="q-answer">DGDA (actif, attestations disponibles), Rawbank (mentionné sans détails), DGI (POC avorté). IRISNET et Euroclear datent d'avant le retour en RDC et étaient sous entité belge.</div>
+          </div>
+        </div>
+
+        <div class="q-item">
+          <div class="q-status unclear">&#10071;</div>
+          <div class="q-content">
+            <div class="q-question">Existe-t-il un SOC opérationnel déjà construit par MALMAS ?</div>
+            <div class="q-answer">Non. Aucun SOC n'a été construit from scratch par MALMAS. Le SOC proposé pour la BCC serait le premier. Fred décrit le montage comme « simple » mais n'a aucun track record en déploiement SOC.</div>
+          </div>
+        </div>
+
+        <div class="q-item">
+          <div class="q-status clear">&#10004;</div>
+          <div class="q-content">
+            <div class="q-question">Des attestations de bonne exécution sont-elles disponibles ?</div>
+            <div class="q-answer">Oui pour la DGDA. Fred a mentionné pouvoir fournir des attestations. Les références européennes (IRISNET, Euroclear) sont vérifiables mais pas sous la marque MALMAS.</div>
+          </div>
+        </div>
+
+        <div class="q-item">
+          <div class="q-status partial">&#9888;</div>
+          <div class="q-content">
+            <div class="q-question">Quelle est la composition actuelle de l'équipe technique ?</div>
+            <div class="q-answer">Fred opère seul. Il n'a pas d'équipe permanente et utilise les ressources de ses clients. Il prévoit de recruter des juniors locaux pour le SOC BCC.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Block 2: Technical -->
+      <div class="question-card fade-up">
+        <h3><span class="m-icon">&#9881;</span> Bloc 2 — Capacité Technique</h3>
+
+        <div class="q-item">
+          <div class="q-status clear">&#10004;</div>
+          <div class="q-content">
+            <div class="q-question">Quelles technologies SIEM / EDR / NDR sont maîtrisées ?</div>
+            <div class="q-answer">Fortinet (solution intégrée, priorité), Splunk (premium). Connaissance Cisco historique. Pas de mention d'EDR/NDR spécifiques au-delà de l'écosystème Fortinet.</div>
+          </div>
+        </div>
+
+        <div class="q-item">
+          <div class="q-status unclear">&#10071;</div>
+          <div class="q-content">
+            <div class="q-question">Quel est le partenaire Super-SOC identifié pour le 24/7 ?</div>
+            <div class="q-answer">Pas de partenaire contractualisé. Fred mentionne « CHELS » et le méga-SOC Fortinet. Il déclare les suivre « depuis un mois ». Aucune LOI ni contrat cadre présenté.</div>
+          </div>
+        </div>
+
+        <div class="q-item">
+          <div class="q-status partial">&#9888;</div>
+          <div class="q-content">
+            <div class="q-question">Quelles certifications individuelles et entreprise sont détenues ?</div>
+            <div class="q-answer">Certifications individuelles : Cisco (expiré/non renouvelé depuis 2020), Fortinet (en cours), TOGAF. Pas de CISSP. Aucune certification entreprise MALMAS mentionnée.</div>
+          </div>
+        </div>
+
+        <div class="q-item">
+          <div class="q-status clear">&#10004;</div>
+          <div class="q-content">
+            <div class="q-question">Quelle approche pour le déploiement SOC local ?</div>
+            <div class="q-answer">Déploiement rapide envisagé (1 semaine). Recrutement local de juniors IT. Supervision par Fred en mode consultant. Infrastructure Fortinet comme base technique.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Block 3: Economic -->
+      <div class="question-card fade-up">
+        <h3><span class="m-icon">&#128200;</span> Bloc 3 — Modèle Économique</h3>
+
+        <div class="q-item">
+          <div class="q-status clear">&#10004;</div>
+          <div class="q-content">
+            <div class="q-question">Quel est le coût mensuel de la prestation MALMAS ?</div>
+            <div class="q-answer">10 000 à 12 000 USD/mois pour la consultation MALMAS. SOC local additionnel : 5 000 à 8 000 USD/mois. Budget total estimé : 15K-20K USD/mois.</div>
+          </div>
+        </div>
+
+        <div class="q-item">
+          <div class="q-status clear">&#10004;</div>
+          <div class="q-content">
+            <div class="q-question">OPEX ou CAPEX — quel modèle de facturation ?</div>
+            <div class="q-answer">OPEX clairement préféré. Facturation mensuelle récurrente. Fred souhaite éviter les gros investissements initiaux côté client.</div>
+          </div>
+        </div>
+
+        <div class="q-item">
+          <div class="q-status partial">&#9888;</div>
+          <div class="q-content">
+            <div class="q-question">Pourquoi rester sous le seuil des 54K USD ?</div>
+            <div class="q-answer">Fred veut explicitement éviter les procédures de marché public / appel d'offres. Il présente cela comme de l'efficacité, mais cela limite la scalabilité et pose des questions de transparence institutionnelle.</div>
+          </div>
+        </div>
+
+        <div class="q-item">
+          <div class="q-status partial">&#9888;</div>
+          <div class="q-content">
+            <div class="q-question">Comment les stakeholders institutionnels sont-ils rémunérés ?</div>
+            <div class="q-answer">Fred a évoqué un modèle de distribution : MALMAS touche 12K, le « surplus » couvre Francis + stakeholders. Référence au modèle DGDA avec distribution cash. Mécanisme flou et potentiellement risqué.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Block 4: Why Mizaroo -->
+      <div class="question-card fade-up">
+        <h3><span class="m-icon">&#127919;</span> Bloc 4 — Pourquoi Mizaroo ?</h3>
+
+        <div class="q-item">
+          <div class="q-status clear">&#10004;</div>
+          <div class="q-content">
+            <div class="q-question">Pourquoi Fred a-t-il besoin de Mizaroo ?</div>
+            <div class="q-answer">Accès institutionnel exclusif. Francis dispose de contacts directs au sein de la BCC (sous-directeurs IT) et d'une connexion au Vice-Gouverneur via son père. Fred ne possède pas ce réseau.</div>
+          </div>
+        </div>
+
+        <div class="q-item">
+          <div class="q-status partial">&#9888;</div>
+          <div class="q-content">
+            <div class="q-question">Quel rôle opérationnel pour Mizaroo au-delà de l'introduction ?</div>
+            <div class="q-answer">Fred voit Mizaroo principalement comme facilitateur institutionnel. Francis a poussé pour un rôle de porteur de contrat avec MALMAS en sous-traitance, mais Fred résiste à cette configuration.</div>
+          </div>
+        </div>
+
+        <div class="q-item">
+          <div class="q-status partial">&#9888;</div>
+          <div class="q-content">
+            <div class="q-question">Quelle est la structure contractuelle envisagée ?</div>
+            <div class="q-answer">Pas de consensus atteint. Fred veut MALMAS comme titulaire (pour Fortinet). Francis veut Mizaroo comme titulaire. Compromis possible : JV paritaire ou co-titulariat, mais rien de formalisé.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Block 5: Institutional -->
+      <div class="question-card fade-up">
+        <h3><span class="m-icon">&#127970;</span> Bloc 5 — Stratégie Institutionnelle</h3>
+
+        <div class="q-item">
+          <div class="q-status clear">&#10004;</div>
+          <div class="q-content">
+            <div class="q-question">Quelle est la stratégie d'approche de la BCC ?</div>
+            <div class="q-answer">Approche bottom-up validée : 1) contacts IT mid-level pour intelligence et diagnostic informel, 2) présentation formelle au Vice-Gouverneur. Démonstration de vulnérabilités comme outil de conviction.</div>
+          </div>
+        </div>
+
+        <div class="q-item">
+          <div class="q-status clear">&#10004;</div>
+          <div class="q-content">
+            <div class="q-question">Quelle posture publique pour le partenariat ?</div>
+            <div class="q-answer">Discrétion totale. Fred refuse toute exposition médiatique ou présence sur les réseaux sociaux pour MALMAS. Aligné avec l'approche institutionnelle feutrée.</div>
+          </div>
+        </div>
+
+        <div class="q-item">
+          <div class="q-status partial">&#9888;</div>
+          <div class="q-content">
+            <div class="q-question">Comment gérer les risques de compliance et de gouvernance ?</div>
+            <div class="q-answer">Non abordé directement. Les mécanismes de distribution cash et la volonté d'éviter les marchés publics nécessitent un cadre de compliance rigoureux qui n'a pas été discuté.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Block 6: Long Term -->
+      <div class="question-card fade-up">
+        <h3><span class="m-icon">&#128640;</span> Bloc 6 — Vision Long Terme</h3>
+
+        <div class="q-item">
+          <div class="q-status partial">&#9888;</div>
+          <div class="q-content">
+            <div class="q-question">Quelle est la vision à 3-5 ans de Fred pour MALMAS ?</div>
+            <div class="q-answer">Fred a mentionné vouloir devenir partenaire Fortinet de référence en RDC. Vision d'expansion vers d'autres institutions. Mais reste vague sur la structuration d'une équipe permanente.</div>
+          </div>
+        </div>
+
+        <div class="q-item">
+          <div class="q-status unclear">&#10071;</div>
+          <div class="q-content">
+            <div class="q-question">Est-il prêt à formaliser un MOU / accord-cadre avec Mizaroo ?</div>
+            <div class="q-answer">Pas de réponse directe. Fred montre de la flexibilité verbale mais n'a jamais validé un engagement formel de partenariat équilibré. La question du MOU reste ouverte.</div>
+          </div>
+        </div>
+
+        <div class="q-item">
+          <div class="q-status partial">&#9888;</div>
+          <div class="q-content">
+            <div class="q-question">Quelle capacité de montée en charge si la BCC accepte ?</div>
+            <div class="q-answer">Limitée. Fred est solo, pas de pipeline de recrutement structuré. Il compte recruter localement au besoin. La montée en charge dépendrait entièrement de sa capacité à trouver et former des juniors rapidement.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Score summary -->
+      <div class="score-summary fade-up">
+        <h3>Synthèse des Évaluations par Bloc</h3>
+        <div class="score-bars">
+          <div class="score-row">
+            <span class="score-label">Crédibilité</span>
+            <div class="score-track"><div class="score-fill amber" data-swidth="55"></div></div>
+            <span class="score-val">5.5/10</span>
+          </div>
+          <div class="score-row">
+            <span class="score-label">Technique</span>
+            <div class="score-track"><div class="score-fill amber" data-swidth="60"></div></div>
+            <span class="score-val">6/10</span>
+          </div>
+          <div class="score-row">
+            <span class="score-label">Économique</span>
+            <div class="score-track"><div class="score-fill green" data-swidth="65"></div></div>
+            <span class="score-val">6.5/10</span>
+          </div>
+          <div class="score-row">
+            <span class="score-label">Rôle Mizaroo</span>
+            <div class="score-track"><div class="score-fill amber" data-swidth="50"></div></div>
+            <span class="score-val">5/10</span>
+          </div>
+          <div class="score-row">
+            <span class="score-label">Institutionnel</span>
+            <div class="score-track"><div class="score-fill green" data-swidth="70"></div></div>
+            <span class="score-val">7/10</span>
+          </div>
+          <div class="score-row">
+            <span class="score-label">Vision Long Terme</span>
+            <div class="score-track"><div class="score-fill red" data-swidth="40"></div></div>
+            <span class="score-val">4/10</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ═══ PANEL 3: INTERNAL ANALYSIS ═══ -->
+    <div class="rapport-panel" id="rtab-analysis">
+
+      <div class="analysis-grid fade-up">
+
+        <!-- Strengths -->
+        <div class="analysis-card strengths">
+          <h3><span class="a-icon">&#9989;</span> Forces Identifiées</h3>
+          <div class="analysis-item"><div class="a-dot"></div><span>Expertise technique réelle en architecture réseau — validée par les anecdotes IRISNET et Euroclear</span></div>
+          <div class="analysis-item"><div class="a-dot"></div><span>Connaissance approfondie de l'écosystème Fortinet, technologie pertinente pour le marché africain</span></div>
+          <div class="analysis-item"><div class="a-dot"></div><span>Contrat actif DGDA — preuve de capacité d'exécution en RDC</span></div>
+          <div class="analysis-item"><div class="a-dot"></div><span>Posture professionnelle discrète et sérieuse, compatible avec l'approche institutionnelle BCC</span></div>
+          <div class="analysis-item"><div class="a-dot"></div><span>Modèle économique clair avec fourchettes de prix réalistes pour le marché local</span></div>
+          <div class="analysis-item"><div class="a-dot"></div><span>Flexibilité démontrée sur la structure contractuelle en fin de discussion</span></div>
+        </div>
+
+        <!-- Risks -->
+        <div class="analysis-card risks">
+          <h3><span class="a-icon">&#9888;&#65039;</span> Risques & Zones d'Ombre</h3>
+          <div class="analysis-item"><div class="a-dot"></div><span>Consultant solo sans équipe — risque de dépendance à une seule personne (bus factor = 1)</span></div>
+          <div class="analysis-item"><div class="a-dot"></div><span>Aucun SOC construit auparavant — le projet BCC serait une première, avec les risques associés</span></div>
+          <div class="analysis-item"><div class="a-dot"></div><span>Pas de contrat actif avec un partenaire Super-SOC — le dispositif 24/7 repose sur des contacts informels</span></div>
+          <div class="analysis-item"><div class="a-dot"></div><span>Euroclear exécuté sous entité belge, pas MALMAS — le track record premium n'est pas directement attribuable</span></div>
+          <div class="analysis-item"><div class="a-dot"></div><span>DGI était un POC avorté — compté comme référence mais jamais finalisé</span></div>
+          <div class="analysis-item"><div class="a-dot"></div><span>Volonté de rester sous le seuil de marché public (54K) — questionne la transparence et la scalabilité</span></div>
+          <div class="analysis-item"><div class="a-dot"></div><span>Pas de CISSP ni certifications offensives — gaps dans le profil sécurité attendu pour un SOC</span></div>
+          <div class="analysis-item"><div class="a-dot"></div><span>Mécanisme de rémunération des stakeholders en cash — risque de compliance significatif</span></div>
+        </div>
+
+        <!-- Opportunities -->
+        <div class="analysis-card opportunities">
+          <h3><span class="a-icon">&#128161;</span> Opportunités pour Mizaroo</h3>
+          <div class="analysis-item"><div class="a-dot"></div><span>Position de force institutionnelle : Mizaroo détient l'accès à la BCC, Fred en a besoin — levier de négociation majeur</span></div>
+          <div class="analysis-item"><div class="a-dot"></div><span>La faiblesse structurelle de MALMAS (solo, pas de SOC) renforce la valeur ajoutée de Mizaroo comme structurateur</span></div>
+          <div class="analysis-item"><div class="a-dot"></div><span>Opportunité de se positionner comme porteur contractuel légitime — contrôle du flux financier et de la relation client</span></div>
+          <div class="analysis-item"><div class="a-dot"></div><span>Le marché de la cybersécurité souveraine en RDC est quasi-vierge — first-mover advantage considérable</span></div>
+          <div class="analysis-item"><div class="a-dot"></div><span>Possibilité de diversifier les partenaires techniques au-delà de MALMAS si le contrat BCC se concrétise</span></div>
+          <div class="analysis-item"><div class="a-dot"></div><span>Le modèle peut être répliqué vers d'autres institutions : ministères, banques commerciales, télécoms</span></div>
+        </div>
+
+        <!-- Recommendations -->
+        <div class="analysis-card recommendations">
+          <h3><span class="a-icon">&#128204;</span> Recommandations Stratégiques</h3>
+          <div class="analysis-item"><div class="a-dot"></div><span>Exiger un MOU formel avant toute démarche auprès de la BCC — définir clairement les rôles, la répartition et les protections</span></div>
+          <div class="analysis-item"><div class="a-dot"></div><span>Demander des preuves documentaires : attestations DGDA, certifications Fortinet à jour, LOI du partenaire Super-SOC</span></div>
+          <div class="analysis-item"><div class="a-dot"></div><span>Insister sur la position de Mizaroo comme titulaire du contrat BCC — Fred en sous-traitance technique avec SLA clairs</span></div>
+          <div class="analysis-item"><div class="a-dot"></div><span>Structurer un cadre de compliance rigoureux : facturation transparente, pas de cash, audit trail complet</span></div>
+          <div class="analysis-item"><div class="a-dot"></div><span>Prévoir un plan B technique : identifier un second partenaire cybersécurité pour réduire la dépendance à Fred</span></div>
+          <div class="analysis-item"><div class="a-dot"></div><span>Conditionner la présentation au Vice-Gouverneur à la validation des points 1-4 ci-dessus</span></div>
+          <div class="analysis-item"><div class="a-dot"></div><span>Consulter un avocat spécialisé en droit des marchés publics congolais pour valider la stratégie de seuil</span></div>
+        </div>
+
+      </div>
+
+      <!-- Verdict -->
+      <div class="verdict-box fade-up">
+        <h3>&#9878;&#65039; Verdict Stratégique Mizaroo</h3>
+        <p><span class="verdict-highlight">Potentiel réel mais structuration insuffisante.</span> Fred apporte une compétence technique tangible en architecture réseau et une connaissance de l'écosystème Fortinet. Cependant, MALMAS en tant qu'entité présente des faiblesses structurelles significatives : consultant solo, pas de SOC déployé, pas de partenaire Super-SOC contractualisé, track record premium non directement attribuable à MALMAS.</p>
+        <p><span class="verdict-highlight">Mizaroo est en position de force.</span> L'accès institutionnel à la BCC est le véritable actif stratégique de cette alliance. Sans Mizaroo, Fred n'a pas de porte d'entrée. Cette asymétrie doit se refléter dans la structuration contractuelle.</p>
+        <p><span class="verdict-highlight">Condition sine qua non :</span> Ne pas avancer vers la BCC sans (1) un MOU signé protégeant les intérêts de Mizaroo, (2) des preuves documentaires de la capacité de MALMAS, (3) une clarification du partenaire Super-SOC, et (4) un cadre de compliance validé juridiquement.</p>
+        <p><span class="verdict-highlight">Recommandation finale :</span> Procéder avec prudence calibrée. Le projet mérite d'être poursuivi pour son potentiel de marché, mais Mizaroo doit piloter la structuration et ne pas se laisser entraîner dans un montage qui ne protège pas ses intérêts à long terme.</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════ CONTACT / CTA ═══════ -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="cta-box fade-up">
+      <span class="label" style="margin-bottom:1rem;display:block;">Prochaine étape</span>
+      <h2>Engageons la conversation</h2>
+      <p>Ce document est une base de discussion stratégique. L'étape suivante est une rencontre formelle pour définir le cadrage, la gouvernance et le planning de ce projet d'envergure nationale.</p>
+      <div class="cta-contact">
+        <a href="#">MALMAS — Kinshasa, Gombe</a>
+        <a href="#">frederic.masiala@malmas.cd</a>
+        <a href="#">Frederic Masiala — CEO</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>MALMAS × Mizaroo &copy; 2026 — Document confidentiel. Framework de collaboration stratégique — Cybersécurité souveraine.</p>
+</footer>
+
+<!-- ═══════ JAVASCRIPT ═══════ -->
+<script>
+(function() {
+  'use strict';
+
+  /* ─── Theme Toggle ─── */
+  const toggle = document.getElementById('theme-toggle');
+  const body = document.body;
+  const saved = localStorage.getItem('malmas-theme');
+  if (saved) body.setAttribute('data-theme', saved);
+
+  toggle.addEventListener('click', () => {
+    const next = body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    body.setAttribute('data-theme', next);
+    localStorage.setItem('malmas-theme', next);
+  });
+
+  /* ─── Scroll Progress ─── */
+  const progressBar = document.getElementById('scroll-progress');
+  function updateProgress() {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    progressBar.style.width = (scrollTop / docHeight * 100) + '%';
+  }
+
+  /* ─── Nav scroll effect ─── */
+  const nav = document.getElementById('main-nav');
+  function updateNav() {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  }
+
+  /* ─── Active nav link ─── */
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  function updateActiveLink() {
+    let current = '';
+    sections.forEach(sec => {
+      const top = sec.offsetTop - 120;
+      if (window.scrollY >= top) current = sec.id;
+    });
+    navLinks.forEach(link => {
+      link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+    });
+  }
+
+  /* ─── Scroll handler (throttled) ─── */
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        updateProgress();
+        updateNav();
+        updateActiveLink();
+        animateOnScroll();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+
+  /* ─── Mobile Menu ─── */
+  const mobileBtn = document.getElementById('mobile-btn');
+  const navLinksEl = document.getElementById('nav-links');
+  mobileBtn.addEventListener('click', () => {
+    navLinksEl.classList.toggle('open');
+  });
+  navLinksEl.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => navLinksEl.classList.remove('open'));
+  });
+
+  /* ─── Solution Tabs ─── */
+  const tabs = document.querySelectorAll('.solution-tab');
+  const tabContents = document.querySelectorAll('.tab-content');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      tabContents.forEach(c => c.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById('tab-' + tab.dataset.tab).classList.add('active');
+    });
+  });
+
+  /* ─── Intersection Observer for animations ─── */
+  function animateOnScroll() {
+    const els = document.querySelectorAll('.fade-up:not(.visible), .timeline-item:not(.visible)');
+    els.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight * 0.88) {
+        el.classList.add('visible');
+      }
+    });
+
+    /* Stat bars */
+    document.querySelectorAll('.stat-bar-fill').forEach(bar => {
+      const rect = bar.parentElement.getBoundingClientRect();
+      if (rect.top < window.innerHeight * 0.9 && bar.style.width === '0%') {
+        bar.style.width = bar.dataset.width + '%';
+      }
+    });
+
+    /* Score bars (rapport) */
+    document.querySelectorAll('.score-fill').forEach(bar => {
+      const rect = bar.parentElement.getBoundingClientRect();
+      if (rect.top < window.innerHeight * 0.9 && bar.style.width === '0%') {
+        bar.style.width = bar.dataset.swidth + '%';
+      }
+    });
+  }
+
+  /* Initial calls */
+  updateProgress();
+  updateNav();
+  setTimeout(animateOnScroll, 200);
+
+  /* ─── Partnership Accordions ─── */
+  document.querySelectorAll('.accord-header').forEach(header => {
+    header.addEventListener('click', () => {
+      const card = header.parentElement;
+      const wasOpen = card.classList.contains('open');
+      // Close all
+      document.querySelectorAll('.accord-card').forEach(c => c.classList.remove('open'));
+      // Toggle clicked
+      if (!wasOpen) card.classList.add('open');
+    });
+  });
+
+  /* ─── Rapport Tabs ─── */
+  const rapportTabs = document.querySelectorAll('.rapport-tab');
+  const rapportPanels = document.querySelectorAll('.rapport-panel');
+  rapportTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      rapportTabs.forEach(t => t.classList.remove('active'));
+      rapportPanels.forEach(p => p.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById('rtab-' + tab.dataset.rtab).classList.add('active');
+    });
+  });
+
+  /* Smooth scroll for CTA */
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      e.preventDefault();
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+})();
+</script>
+</body>
+</html>
