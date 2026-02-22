@@ -4,23 +4,20 @@
   <meta charset="UTF-8" />
   <title>Accès — Dossier MALMAS | Mizaroo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <!-- SEO -->
   <meta name="description" content="Accès sécurisé au dossier confidentiel MALMAS." />
-
   <!-- Open Graph (WhatsApp Preview) -->
   <meta property="og:title" content="Dossier Confidentiel — MALMAS" />
   <meta property="og:description" content="Document confidentiel préparé par MIZAROO." />
-  <meta property="og:image" content="https://mizaroo-previews.vercel.app/og-malmas.png" />
+  <meta property="og:image" content="https://mizaroo-previews.vercel.app/og-malmas.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
+  <meta property="og:image:type" content="image/jpeg" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://mizaroo-previews.vercel.app/malmas" />
-
   <!-- Important pour les vignettes grand format (WhatsApp utilise aussi ça) -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:image" content="https://mizaroo-previews.vercel.app/og-malmas.png" />
-
+  <meta name="twitter:image" content="https://mizaroo-previews.vercel.app/og-malmas.jpg" />
   <style>
     body {
       background: #0a0a0a;
@@ -33,7 +30,6 @@
       margin: 0;
       text-align: center;
     }
-
     .box {
       background: #111;
       padding: 40px;
@@ -43,12 +39,10 @@
       max-width: 400px;
       box-shadow: 0 0 20px rgba(250, 204, 21, 0.1);
     }
-
     h1 {
       color: #facc15;
       margin-bottom: 20px;
     }
-
     input {
       width: 100%;
       padding: 15px;
@@ -59,7 +53,6 @@
       background: #000;
       color: #eee;
     }
-
     button {
       width: 100%;
       padding: 15px;
@@ -71,7 +64,6 @@
       cursor: pointer;
       font-size: 1rem;
     }
-
     .error {
       margin-top: 15px;
       color: #ff4444;
@@ -84,19 +76,14 @@
   <div class="box">
     <h1>Code d'accès requis</h1>
     <p>Veuillez entrer le code pour accéder au dossier confidentiel MALMAS.</p>
-
     <input type="password" id="accessCode" placeholder="Entrez le code" />
-
     <button onclick="checkCode()">Valider</button>
-
     <div id="errorMessage" class="error">❌ Code incorrect</div>
   </div>
-
   <script>
     function checkCode() {
       const correctCode = "MALMAS2026"; // 🔑 CODE D'ACCÈS
       const inputCode = document.getElementById("accessCode").value;
-
       if (inputCode === correctCode) {
         window.location.href = "/MALMAS_Strategic_Proposal.html";
       } else {
